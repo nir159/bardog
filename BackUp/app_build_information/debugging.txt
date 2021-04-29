@@ -1,0 +1,96 @@
+TODO:
+
+* upload files to git
+
+* fix google login in debug and release
+
+* minsdk is 27 instead of 26 - problem with multidex support
+
+notes:
+
+- Release alias is "Bardog Alias"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    facebook sign in issues:
+        * can't sign in because a google account with this email exists
+
+	google sign in issues:
+
+		* api exception: 12500:
+            - in the firebase console under authentication there are 2 authorised domains
+                one of them was missing in the google api console under oauth consent screen (edit page) authorised domains
+            - in the firebase console settings there were 2 sha 1 hash keys - debug and release, removing the release key
+                and adding it back changed the exception to api exception 10
+            - the app name in google console was different from firebase console
+
+		* api exception: 10:
+		    - when you add sha 1 fingerprint to firebase google automatically generates the OAuth 2.0
+		        Adding both Debug and Release generated 2 Android Clients in the console
+		        Removing the Debug key from firebase console and downloading the google-services.json file
+		        and don't update the client id in the LoginActivity
+		    - signing into the firebase google account in android studio
+
+		* api exception: 12501:
+		    - login canceled by user
+
+		* api exception: 16:
+		    - appears after 12501 when already signed in
+
+        *********** SOLVED *************
+        changed the requestIdToken in Login Activity to the web application ID.
+        However, the login won't work in debug mode
+
+
+
+*********************************************************** notes ***********************************************************
+
+
+    * google debug/release keys and the openssl folder are in the bardog folder
+
+    * Release alias is "Bardog Alias"
+
+    * the Release key for the app is at the google play console > הגדרה > שלמות האפליקציה > אישור חתימת האפליקציה
+
+    * google login won't work in debug version because it will result in a failure in both debug and release
+
+    * changed firebase-auth to 20.0.4(3*)

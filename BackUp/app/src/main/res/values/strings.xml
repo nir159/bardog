@@ -1,0 +1,86 @@
+<resources>
+    <!-- facebook app id -->
+    <string name="facebook_app_id" translatable="false">797625984516784</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb797625984516784</string>
+
+    <!-- Create Dog Activity -->
+    <string name="app_name" translatable="false">Bardog</string>
+    <string name="dog_name_input">Enter dog name…</string>
+    <string name="is_vaccinated_input">Is vaccinated?</string>
+    <string name="dog_type_input">Dog type</string>
+    <string name="dog_birth_date_input">Birth date</string>
+    <string name="owner_name_input">Owner name</string>
+    <string name="owner_phone_input">Contact phone number</string>
+    <string name="extra_comments_input">Comments</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="save_button">Save</string>
+
+    <!-- Home Page Activity -->
+    <string name="add_dog_button">add dog</string>
+    <string name="my_dogs_button">my dogs</string>
+    <string name="home_page_information">For more information, to get help or to suggest new features contact us at: bardog.help@gmail.com</string>
+    <string name="logout_button">logout</string>
+
+    <!-- List Dogs Activity -->
+    <string name="my_dogs_title">My Dogs</string>
+    <string name="no_dogs_textview">No Dogs Created</string>
+    <string name="create_now_button">Create Now</string>
+
+    <!-- Login Activity -->
+    <string name="login_title">Login</string>
+    <string name="login_email_input_hint">Email</string>
+    <string name="login_password_input_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="not_registered_yet">not registered yet?</string>
+    <string name="register_link_button">register</string>
+
+    <!-- Register Activity -->
+    <string name="register_title">Register</string>
+    <string name="register_email_input_hint">Email</string>
+    <string name="register_password_input_hint">Password</string>
+    <string name="register_button">Register</string>
+    <string name="already_registered">already registered?</string>
+    <string name="login_link_button">login</string>
+
+    <!-- See Barcode Activity -->
+    <string name="see_barcode_title">YOUR BARCODE</string>
+    <string name="go_back_button">back</string>
+    <string name="share_button">share</string>
+
+    <!-- See Dog Activity -->
+    <string name="loading_title">Loading…</string>
+    <string name="please_wait_textview">please wait for a few seconds</string>
+
+    <!-- Tutorial Activity -->
+    <string name="tutorial_small_text">Enter tutorial in here</string>
+    <string name="understood_button">I Understand</string>
+
+    <!-- Dog List Item Class -->
+    <string name="generate_barcode_button">Barcode</string>
+    <string name="remove_dog_button">X</string>
+
+
+    <!-- Navigation -->
+    <string name="nav_header_title" translatable="false">Bardog</string>
+    <string name="nav_header_subtitle" translatable="false">useremail@android.com</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_create_dog">Add Dog</string>
+    <string name="menu_faq">FAQ</string>
+    <string name="menu_who_are_we">Who Are We</string>
+    <string name="menu_terms_and_conditions">Terms and Conditions</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_user">User</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_share">Share</string>
+
+    <string name="title_activity_test">TestActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_remove">remove</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+</resources>

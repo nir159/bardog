@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "993528266298",
+    "firebase_url": "https://bardog-default-rtdb.firebaseio.com",
+    "project_id": "bardog",
+    "storage_bucket": "bardog.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993528266298:android:83871cc013a3975bdbbf03",
+        "android_client_info": {
+          "package_name": "com.nalamala.bardog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993528266298-pvl2av0vligco2co0pklaiibtc4psbmt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nalamala.bardog",
+            "certificate_hash": "a6d926535b5889b87a2779d980c17367ce8f65fc"
+          }
+        },
+        {
+          "client_id": "993528266298-2vfs00v66bv8u81lg2dbr7gs76ne1odp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8hRBGxr0SmC6BrDCrHK1p81OnaZn19Ac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993528266298-2vfs00v66bv8u81lg2dbr7gs76ne1odp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

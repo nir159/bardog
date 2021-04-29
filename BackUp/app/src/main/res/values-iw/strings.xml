@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Create Dog Activity -->
+    <string name="dog_name_input">שם הכלב</string>
+    <string name="is_vaccinated_input">האם הכלב מחוסן?</string>
+    <string name="dog_type_input">סוג הכלב</string>
+    <string name="dog_birth_date_input">תאריך לידה של הכלב</string>
+    <string name="owner_name_input">שם הבעלים</string>
+    <string name="owner_phone_input">מספר טלפון למקרי חירום</string>
+    <string name="extra_comments_input">הערות נוספות (לא חובה)</string>
+    <string name="cancel_button">ביטול</string>
+    <string name="save_button">שמור</string>
+
+    <!-- Home Page Activity -->
+    <string name="add_dog_button">הוסף כלב</string>
+    <string name="my_dogs_button">הכלבים שלי</string>
+    <string name="home_page_information">לקבלת מידע נוסף, לדיווח על תקלה או לתת חוות דעת על האפליקציה ניתן לפנות אלינו דרך המייל בכתובת bardog.help@gmail.com</string>
+    <string name="logout_button">התנתק</string>
+
+    <!-- List Dogs Activity -->
+    <string name="my_dogs_title">הכלבים שלי</string>
+    <string name="no_dogs_textview">לא יצרת עדיין</string>
+    <string name="create_now_button">צור כאן</string>
+
+    <!-- Login Activity -->
+    <string name="login_title">התחברות</string>
+    <string name="login_email_input_hint">אימייל</string>
+    <string name="login_password_input_hint">סיסמא</string>
+    <string name="login_button">התחבר</string>
+    <string name="not_registered_yet">עדיין לא רשום לbardog?</string>
+    <string name="register_link_button">הרשם</string>
+
+    <!-- Register Activity -->
+    <string name="register_title">הרשמה</string>
+    <string name="register_email_input_hint">אימייל</string>
+    <string name="register_password_input_hint">סיסמא</string>
+    <string name="register_button">הרשם</string>
+    <string name="already_registered">כבר רשום לbardog?</string>
+    <string name="login_link_button">התחבר</string>
+
+    <!-- See Barcode Activity -->
+    <string name="see_barcode_title">YOUR BARCODE</string>
+    <string name="go_back_button">חזור</string>
+    <string name="share_button">שיתוף</string>
+
+    <!-- See Dog Activity -->
+    <string name="loading_title">טוען…</string>
+    <string name="please_wait_textview">אנא המתן עד לסוף הטעינה</string>
+
+    <!-- Tutorial Activity -->
+    <string name="tutorial_small_text">האפליקציה מאפשרת לך להכניס את הפרטים של הכלבים שלך ולקבל ברקוד שכאשר סורקים אותו האפליקציה מראה את הפרטים על אותו הכלב בתוך bardog. המטרה העיקרית של האפליקציה היא לתת מידע במקרה שבו הכלב נעלם עבור מי שימצא אותו ולכן נשים את הברקוד על הקולר או שנצמיד אותו בדרך שבה כולם יוכלו לראות את הברקוד</string>
+    <string name="understood_button">הבנתי</string>
+
+    <!-- Dog List Item Class -->
+    <string name="generate_barcode_button">ברקוד</string>
+    <string name="remove_dog_button">X</string>
+
+</resources>

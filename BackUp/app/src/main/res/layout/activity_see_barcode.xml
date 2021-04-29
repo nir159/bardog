@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_activity_background"
+    tools:context=".SeeBarcodeActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"
+        android:alpha="0.4"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/see_barcode_title" />
+
+    <ImageView
+        android:id="@+id/barcode_image"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/title"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/nala" />
+
+    <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/barcode_image"
+    android:layout_marginTop="50dp"
+    android:layout_gravity="center" >
+
+        <Button
+            android:id="@+id/go_back_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/button_primary_gradient"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/colorPrimaryLight"
+            android:text="@string/go_back_button" />
+
+        <Button
+            android:id="@+id/share_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/colorPrimaryLight"
+            android:background="@drawable/button_primary_gradient"
+            android:text="@string/share_button" />
+
+    </LinearLayout>
+
+</RelativeLayout>
