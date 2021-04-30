@@ -15,11 +15,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "993528266298-0jnd8vnrfcju5pbt8gnf4d6qds4lvvc8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nalamala.bardog",
+            "certificate_hash": "fb39f19ad9686610aaed80f77ce6378890f887f3"
+          }
+        },
+        {
           "client_id": "993528266298-pvl2av0vligco2co0pklaiibtc4psbmt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.nalamala.bardog",
             "certificate_hash": "a6d926535b5889b87a2779d980c17367ce8f65fc"
+          }
+        },
+        {
+          "client_id": "993528266298-ts6pjfpt7v5nehotalcvmvb1faoau5gu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nalamala.bardog",
+            "certificate_hash": "09e4ec4494a518574b3fd3f4d51ec65061b06755"
           }
         },
         {

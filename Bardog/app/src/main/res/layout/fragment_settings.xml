@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_activity_background"
-    tools:context=".HomePageActivity">
+    android:background="@drawable/main_activity_background">
 
     <ImageView
         android:layout_width="match_parent"
@@ -22,6 +21,19 @@
         android:textSize="50sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="@string/menu_faq" />
+        android:text="@string/settings_title" />
+
+    <Button
+        android:id="@+id/language_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/button_primary_gradient"
+        android:text="@string/change_language_button"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="20sp" />
 
 </RelativeLayout>

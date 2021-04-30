@@ -28,7 +28,6 @@ public class HomeFragment extends Fragment {
 
     DatabaseReference dogsRef;
     ListView dogsListView;
-    TextView headerEmail;
     ArrayList<Dog> listDogs;
     DogsListAdapter adapter;
     LinearLayout noDogsLayout;
@@ -51,7 +50,6 @@ public class HomeFragment extends Fragment {
         dogsListView = getView().findViewById(R.id.users_list);
         noDogsLayout = getView().findViewById(R.id.no_dogs_layout);
         createDogButton = getView().findViewById(R.id.create_now_button);
-        headerEmail = getView().findViewById(R.id.nav_header_user_email);
         //filterEditText = findViewById(R.id.filter_edit_text);
 
         listDogs = new ArrayList<>();

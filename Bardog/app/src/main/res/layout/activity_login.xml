@@ -50,9 +50,9 @@
             android:id="@+id/google_login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="Login With Google"
+            android:layout_marginTop="10dp"
+            android:text="@string/login_using_google"
             app:isDarkTheme="true" />
 
         <EditText
@@ -78,8 +78,9 @@
             android:drawablePadding="10dp"
             android:padding="10dp"
             android:ems="10"
-            android:hint="@string/login_password_input_hint"
-            android:inputType="textPassword" />
+            android:textAlignment="viewStart"
+            android:inputType="textPassword"
+            android:hint="@string/login_password_input_hint" />
 
         <Button
             android:id="@+id/login_button"

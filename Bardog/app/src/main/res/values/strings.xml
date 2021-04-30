@@ -2,9 +2,10 @@
     <!-- facebook app id -->
     <string name="facebook_app_id" translatable="false">797625984516784</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb797625984516784</string>
+    <string name="app_name" translatable="false">Bardog</string>
+    <string name="main_toolbar_title">Bardog</string>
 
     <!-- Create Dog Activity -->
-    <string name="app_name" translatable="false">Bardog</string>
     <string name="dog_name_input">Enter dog name…</string>
     <string name="is_vaccinated_input">Is vaccinated?</string>
     <string name="dog_type_input">Dog type</string>
@@ -31,8 +32,10 @@
     <string name="login_email_input_hint">Email</string>
     <string name="login_password_input_hint">Password</string>
     <string name="login_button">Login</string>
+    <string name="login_using_google">Login With Google</string>
     <string name="not_registered_yet">not registered yet?</string>
     <string name="register_link_button">register</string>
+
 
     <!-- Register Activity -->
     <string name="register_title">Register</string>
@@ -58,6 +61,15 @@
     <!-- Dog List Item Class -->
     <string name="generate_barcode_button">Barcode</string>
     <string name="remove_dog_button">X</string>
+
+    <!-- Splash Activity -->
+    <string name="no_internet_connection">Please connect to the internet and retry</string>
+    <string name="connect_to_internet">Try again</string>
+    <string name="cancel_internet">Cancel</string>
+
+    <!-- Settings Activity -->
+    <string name="settings_title">Settings</string>
+    <string name="change_language_button">Language</string>
 
 
     <!-- Navigation -->

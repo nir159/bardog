@@ -60,6 +60,7 @@
             android:drawablePadding="10dp"
             android:padding="10dp"
             android:ems="10"
+            android:textAlignment="viewStart"
             android:hint="@string/register_password_input_hint"
             android:inputType="textPassword" />
 

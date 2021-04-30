@@ -26,17 +26,15 @@
             android:title="@string/menu_settings" />
     </group>
 
-    <item android:title="@string/menu_user">
-        <menu>
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/ic_logout"
-                android:title="@string/menu_logout" />
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_share"
-                android:title="@string/menu_share" />
-        </menu>
-    </item>
+    <group>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/menu_logout" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_share"
+            android:title="@string/menu_share" />
+    </group>
 
 </menu>

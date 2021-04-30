@@ -1,14 +1,21 @@
 package com.nalamala.bardog;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -29,12 +36,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.main_toolbar_title);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
         // Navigation control
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // change Status bar and Navigation bar color
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        // window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.backgrounStartColor));
+        // window.setStatusBarColor(ContextCompat.getColor(this, R.color.statusBarColor));
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = headerView.findViewById(R.id.header_user_email);
+        navUsername.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
         // Drawer open/close controller
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
