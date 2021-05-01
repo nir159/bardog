@@ -3,7 +3,7 @@
     <color name="colorPrimaryLight">#FFFFFF</color>
     <color name="colorPrimary">#DF1515</color>
     <color name="colorPrimaryDark">#610909</color>
-    <color name="backgrounStartColor">#AFAD21</color>
-    <color name="backgrounCenterColor">#FF890B</color>
+    <color name="backgroundStartColor">#FF9752</color>
+    <color name="backgroundEndColor">#F39252</color>
     <color name="inputHintColor">#CACACA</color>
 </resources>

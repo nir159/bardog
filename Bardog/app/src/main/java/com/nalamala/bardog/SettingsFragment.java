@@ -35,7 +35,6 @@ public class SettingsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         localeHelper = new LocaleHelper(getContext());
-        localeHelper = new LocaleHelper(getContext());
 
         languageButton = getView().findViewById(R.id.language_button);
         languageButton.setOnClickListener(new View.OnClickListener() {

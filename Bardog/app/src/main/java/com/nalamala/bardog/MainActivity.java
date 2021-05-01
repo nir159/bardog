@@ -29,11 +29,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawer;
     NavigationView navigationView;
     Dog extraDog;
+    LocaleHelper localeHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        localeHelper = new LocaleHelper(this);
+        localeHelper.initLanguage();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.main_toolbar_title);
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         // window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.backgrounStartColor));
+        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.backgroundStartColor));
         // window.setStatusBarColor(ContextCompat.getColor(this, R.color.statusBarColor));
 
         View headerView = navigationView.getHeaderView(0);

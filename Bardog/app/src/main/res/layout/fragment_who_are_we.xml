@@ -3,15 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/main_activity_background">
+    android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background"
-        android:scaleType="centerCrop"
-        android:alpha="0.4"/>
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/title"
@@ -30,7 +28,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="70dp"
         android:requiresFadingEdge="vertical"
         android:layout_below="@id/title">
 

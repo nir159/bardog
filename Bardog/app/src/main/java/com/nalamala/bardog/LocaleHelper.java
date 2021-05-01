@@ -41,13 +41,18 @@ public class LocaleHelper {
         return true;
     }
 
+    public void initLanguage() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String lang = preferences.getString(SELECTED_LANGUAGE, DEFAULT_LANGUAGE);
+        setLocale(lang);
+    }
+
     private void setLocale(String lang) {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
+        Resources resources = mContext.getResources();
         Configuration configuration = mContext.getResources().getConfiguration();
         configuration.setLocale(locale);
-
-        Resources resources = mContext.getResources();
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
