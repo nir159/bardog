@@ -5,7 +5,7 @@
     <string name="app_name" translatable="false">Bardog</string>
     <string name="main_toolbar_title">Bardog</string>
 
-    <!-- Create Dog Activity -->
+    <!-- Create Dog Fragment -->
     <string name="dog_name_input">Enter dog name…</string>
     <string name="is_vaccinated_input">Is vaccinated?</string>
     <string name="dog_type_input">Dog type</string>
@@ -16,16 +16,42 @@
     <string name="cancel_button">Cancel</string>
     <string name="save_button">Save</string>
 
-    <!-- Home Page Activity -->
-    <string name="add_dog_button">add dog</string>
-    <string name="my_dogs_button">my dogs</string>
-    <string name="home_page_information">For more information, to get help or to suggest new features contact us at: bardog.help@gmail.com</string>
-    <string name="logout_button">logout</string>
-
-    <!-- List Dogs Activity -->
+    <!-- Home Page Fragment -->
     <string name="my_dogs_title">My Dogs</string>
     <string name="no_dogs_textview">No Dogs Created</string>
     <string name="create_now_button">Create Now</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings_title">Settings</string>
+    <string name="change_language_button">Language</string>
+
+    <!-- FAQ Fragment -->
+    <string name="faq_title">FAQ</string>
+
+    <string name="q1">FAQ</string>
+    <string name="a1">FAQ</string>
+    <string name="q2">FAQ</string>
+    <string name="a2">FAQ</string>
+    <string name="q3">FAQ</string>
+    <string name="a3">FAQ</string>
+    <string name="q4">FAQ</string>
+    <string name="a4">FAQ</string>
+    <string name="q5">FAQ</string>
+    <string name="a5">FAQ</string>
+    <string name="q6">FAQ</string>
+    <string name="a6">FAQ</string>
+    <string name="q7">FAQ</string>
+    <string name="a7">FAQ</string>
+    <string name="q8">FAQ</string>
+    <string name="a8">FAQ</string>
+    <string name="q9">FAQ</string>
+    <string name="a9">FAQ</string>
+
+    <!-- WhoAreWe Fragment -->
+    <string name="who_are_we_title">Who Are We</string>
+    <string name="who_are_we_text">
+    BlahBlahBlah...
+    </string>
 
     <!-- Login Activity -->
     <string name="login_title">Login</string>
@@ -46,7 +72,7 @@
     <string name="login_link_button">login</string>
 
     <!-- See Barcode Activity -->
-    <string name="see_barcode_title">YOUR BARCODE</string>
+    <string name="see_barcode_title" translatable="false">YOUR BARCODE</string>
     <string name="go_back_button">back</string>
     <string name="share_button">share</string>
 
@@ -67,32 +93,19 @@
     <string name="connect_to_internet">Try again</string>
     <string name="cancel_internet">Cancel</string>
 
-    <!-- Settings Activity -->
-    <string name="settings_title">Settings</string>
-    <string name="change_language_button">Language</string>
-
-
     <!-- Navigation -->
     <string name="nav_header_title" translatable="false">Bardog</string>
     <string name="nav_header_subtitle" translatable="false">useremail@android.com</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_desc" translatable="false">Logo</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_create_dog">Add Dog</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_who_are_we">Who Are We</string>
-    <string name="menu_terms_and_conditions">Terms and Conditions</string>
     <string name="menu_settings">Settings</string>
-    <string name="menu_user">User</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_share">Share</string>
-
-    <string name="title_activity_test">TestActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_remove">remove</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
 
 </resources>

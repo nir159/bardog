@@ -3,7 +3,7 @@
 
     <string name="main_toolbar_title">ברדוג</string>
 
-    <!-- Create Dog Activity -->
+    <!-- Create Dog Fragment -->
     <string name="dog_name_input">שם הכלב</string>
     <string name="is_vaccinated_input">האם הכלב מחוסן?</string>
     <string name="dog_type_input">סוג הכלב</string>
@@ -14,16 +14,57 @@
     <string name="cancel_button">ביטול</string>
     <string name="save_button">שמור</string>
 
-    <!-- Home Page Activity -->
-    <string name="add_dog_button">הוסף כלב</string>
-    <string name="my_dogs_button">הכלבים שלי</string>
-    <string name="home_page_information">לקבלת מידע נוסף, לדיווח על תקלה או לתת חוות דעת על האפליקציה ניתן לפנות אלינו דרך המייל בכתובת bardog.help@gmail.com</string>
-    <string name="logout_button">התנתק</string>
-
-    <!-- List Dogs Activity -->
+    <!-- Home Page Fragment -->
     <string name="my_dogs_title">הכלבים שלי</string>
     <string name="no_dogs_textview">לא יצרת עדיין</string>
     <string name="create_now_button">צור כאן</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings_title">הגדרות</string>
+    <string name="change_language_button">שפה</string>
+
+    <!-- FAQ Fragment -->
+    <string name="faq_title">שאלות נפוצות</string>
+
+    <string name="q1">איך אני מוסיף את הכלב שלי ומקבל ברקוד?</string>
+    <string name="a1">בתפריט קיים כפתור "כלב חדש" יש למלא את הפרטים שלך ושל הכלב בצורה הטובה ביותר ולא לפספס נתונים שיהיו קריטיים ברגע שהכלב הלך לאיבוד והאפליקציה תעשה את כל השאר.</string>
+    <string name="q2">איפה אני רואה את הברקוד של הכלב שלי?</string>
+    <string name="a2">במסך "הכלבים שלי" תוכל לראות את כל הכלבים שלך עם כל האפשרויות.</string>
+    <string name="q3">מי יוכל לראות את הפרטים שלי ושל הכלב?</string>
+    <string name="a3">אפליקציית bardog היא אינה רשת חברתית, אנחנו שמים את פרטיותכם כערך עליון ואף אדם לא יוכל לגשת לפרטים שלכם למעט אדם הסורק את הברקוד.</string>
+    <string name="q4">האם יכול להיות שאדם יסרוק ברקוד של כלב אחר ויגיע אל הפרטים שלי?</string>
+    <string name="a4">לא! לכל כלב קיים ברקוד ייחודי ולא קיימים שני ברקודים הנראים אותו הדבר כשם שאין שתי טביעות אצבע דומות.</string>
+    <string name="q5">כיצד אני מעביר את הברקוד למחשב?</string>
+    <string name="a5">במסך הברקוד תוכל לראות כפתור "שיתוף" ושם תוכל להעביר את הברקוד לכל גורם שתבחר בעזרת מייל whatsapp או כל אפשרות אחרת.</string>
+    <string name="q6">האם יש גודל  הכרחי לברקוד?</string>
+    <string name="a6">אין שום גודל הכרחי כדי לסרוק את הברקוד והוא יכול להיות בכל גודל שתבחר בהנחה שהמצלמה תצליח לראות אותו.</string>
+    <string name="q7">איך אני שם את הברקוד על הכלב?</string>
+    <string name="a7">האפשרויות מגוונות ורחבות וניתן לראות בסרטון ההדרכה כמה דוגמאות, ההמלצה שלנו היא לעשות את זה בצורה מקצועית ובתשלום קטן לבעלי מקצוע
+  כדי לוודא שהברקוד לעולם לא ייפול מהכלב אך כמובן שישנו מגוון רחב של אפשרויות לעשות את זה בבית בצורה חובבנית בעזרת כל מדפסת ביתית פשוטה
+  ובחינם אך יש לוודא שאינך שם את הברקוד בצורה שעלולה להפריע לכלב או לסכן אותו ושהברקוד חשוף וניתן לראות אותו במבט חיצוני.</string>
+    <string name="q8">האם יש הגבלה למספר הכלבים שאני יכול להכניס לאפליקציה?</string>
+    <string name="a8">לא! האפליקציה שלנו מנסה לתת את הערך הגבוה ביותר לכל אדם ותוכל להכניס כמה כלבים שתרצה ולקבל ברקוד ייחודי לכל אחד מהם</string>
+    <string name="q9">מצאתי כלב עם ברקוד שלכם עליו! מה אני עושה?</string>
+    <string name="a9">כל מה שאתה צריך לעשות הוא לסרוק את הברקוד בעזרת המצלמה שלך או בכפתור "סרוק ברקוד" באפליקציה ותוכל לראות את כל פרטי הקשר של
+   הבעלים ותוכל ליצור קשר ישירות איתו ובכך להציל את חיי הכלב. במידה ואתה לא מצליח להשיג את הבעלים או שאינך מרגיש בנוח ליצור איתו קשר נשמח
+שתיצור קשר איתנו במייל Bardog.help@gmail.com ונעזור לך בהקדם האפשרי.</string>
+
+    <!-- WhoAreWe Fragment -->
+    <string name="who_are_we_title">מי אנחנו</string>
+    <string name="who_are_we_text">
+    בעיית איתור כלבים אבודים היא אחת מהבעיות הקשות ביותר של עולם הכלבים נכון להיום.
+    אנחנו כאן באפליקציית bardog מנסים לתת מענה לבעיה בצורה הטובה ביותר כאשר לנגד עינינו נמצאים הכלבים
+    האבודים הבעלים הכואבים והמטרה החשובה של הצלת חיים בצורה המהירה והמקצועית ביותר.
+    נשמח לשיתוף הפעולה שלכם כדי להגיע לנקודה שבה כל אדם יוכל לאתר אותכם בקלות במהירות ברגע שבו מצא את הכלב שלכם ולחסוך זמן יקר לכם ולכלב.
+    יש לציין: מטרת הברקוד שלנו היא לא להחליף את השבב, השימוש בשבב הוא חובה לפי חוק במדינת ישראל, ואין לוותר על שבב בשל השימוש בברקוד.
+    אך עם זאת השימוש בשבב הוא מסורבל ומסובך ולא כל אדם שמוצא את הכלב יכול לסרוק את השבב ולכן אנחנו ממליצים על השימוש בברקוד בנוסף לשבב
+    כדי לוודא שכל גורם המוצא את הכלב שלך יוכל לאתר אותך מכל טלפון נייד.
+    אם אהבתם את האפליקציה והשירות ואתם מעוניינים לעזור לנו הדבר הטוב ביותר שתוכלו לעשות הוא להמליץ על האפליקציה לסביבה הקרובה שלכם
+    ובכך ניצור רשת נרחבת של כלבים הניתנים לאיתור בצורה קלה מהירה ופשוטה
+    במידה ומצאתם כלב בעל ברקוד שלנו ואינכם מצליחים לאתר את הבעלים נשמח שתיצרו איתנו קשר ונעזור לכם לאורך כל הדרך"
+    לקבלת מידע נוסף לדיווח על תקלה או לתת חוות דעת וביקורת ניתן לפנות אלינו בכל עת בכתובת bardog.help@gmail.com
+    all right reserved TNO
+    </string>
 
     <!-- Login Activity -->
     <string name="login_title">התחברות</string>
@@ -43,7 +84,6 @@
     <string name="login_link_button">התחבר</string>
 
     <!-- See Barcode Activity -->
-    <string name="see_barcode_title">YOUR BARCODE</string>
     <string name="go_back_button">חזור</string>
     <string name="share_button">שיתוף</string>
 
@@ -60,32 +100,17 @@
     <string name="remove_dog_button">X</string>
 
     <!-- Splash Activity -->
-    <string name="no_internet_connection">Please connect to the internet and retry</string>
-    <string name="connect_to_internet">Try again</string>
-    <string name="cancel_internet">Cancel</string>
-
-    <!-- Settings Activity -->
-    <string name="settings_title">הגדרות</string>
-    <string name="change_language_button">שפה</string>
+    <string name="no_internet_connection">אין אינטרנט. התחבר לאינטרנט ונסה שוב</string>
+    <string name="connect_to_internet">נסה שוב</string>
+    <string name="cancel_internet">ביטול</string>
 
     <!-- Navigation -->
-    <string name="menu_home">Home</string>
-    <string name="menu_create_dog">Add Dog</string>
-    <string name="menu_faq">FAQ</string>
-    <string name="menu_who_are_we">Who Are We</string>
-    <string name="menu_terms_and_conditions">Terms and Conditions</string>
+    <string name="menu_home">בית</string>
+    <string name="menu_create_dog">הוספת כלב</string>
+    <string name="menu_faq">שאלות נפוצות</string>
+    <string name="menu_who_are_we">מי אנחנו</string>
     <string name="menu_settings">הגדרות</string>
-    <string name="menu_user">User</string>
-    <string name="menu_logout">Logout</string>
-    <string name="menu_share">Share</string>
-
-    <string name="title_activity_test">TestActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_remove">remove</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_logout">התנתק</string>
+    <string name="menu_share">שיתוף</string>
 
 </resources>
