@@ -18,17 +18,11 @@ import android.view.View;
 
 public class SplashActivity extends AppCompatActivity {
 
-    LocaleHelper localeHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         MultiDex.install(this);
-
-        // set language
-        localeHelper = new LocaleHelper(this);
-        localeHelper.setDefault();
 
         // check internet connection
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);

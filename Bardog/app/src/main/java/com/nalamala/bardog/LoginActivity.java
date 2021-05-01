@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     FirebaseAuth mAuth;
     LoadingBar bar;
+    LocaleHelper localeHelper;
     boolean facebookCanceled = false;
 
     @Override
@@ -76,7 +77,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // reseting the langauge before setting the content view
+        localeHelper = new LocaleHelper(this);
+        localeHelper.initLanguage();
+
         setContentView(R.layout.activity_login);
+
 
         googleLoginButton = findViewById(R.id.google_login_button);
         facebookLoginButton = findViewById(R.id.facebook_login_button);

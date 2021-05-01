@@ -25,10 +25,16 @@ public class RegisterActivity extends AppCompatActivity {
     EditText passwordEditText;
 
     FirebaseAuth mAuth;
+    LocaleHelper localeHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // reseting the langauge before setting the content view
+        localeHelper = new LocaleHelper(this);
+        localeHelper.initLanguage();
+
         setContentView(R.layout.activity_register);
 
         loginLinkButton = findViewById(R.id.login_link_button);

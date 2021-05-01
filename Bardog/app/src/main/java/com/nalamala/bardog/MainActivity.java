@@ -34,10 +34,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        // reseting the langauge before setting the content view
         localeHelper = new LocaleHelper(this);
         localeHelper.initLanguage();
+
+        setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.main_toolbar_title);

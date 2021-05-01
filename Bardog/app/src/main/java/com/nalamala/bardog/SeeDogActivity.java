@@ -19,6 +19,7 @@ public class SeeDogActivity extends AppCompatActivity {
 
     DatabaseReference dogsRef = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_DOGS_REF);
     CircleImageView profileImage;
+    LocaleHelper localeHelper;
     TextView dogName;
     TextView isImmuned;
     TextView desc;
@@ -29,6 +30,11 @@ public class SeeDogActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // reseting the langauge before setting the content view
+        localeHelper = new LocaleHelper(this);
+        localeHelper.initLanguage();
+
         setContentView(R.layout.activity_see_dog);
 
         profileImage = findViewById(R.id.dog_image);

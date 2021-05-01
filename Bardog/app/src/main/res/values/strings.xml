@@ -72,7 +72,7 @@
     <string name="login_link_button">login</string>
 
     <!-- See Barcode Activity -->
-    <string name="see_barcode_title" translatable="false">YOUR BARCODE</string>
+    <string name="see_barcode_title" translatable="false">YOUR BARDOG</string>
     <string name="go_back_button">back</string>
     <string name="share_button">share</string>
 

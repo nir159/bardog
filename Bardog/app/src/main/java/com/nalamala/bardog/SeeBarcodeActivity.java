@@ -22,10 +22,16 @@ public class SeeBarcodeActivity extends AppCompatActivity {
     Button shareButton;
 
     Bitmap barcodeMap;
+    LocaleHelper localeHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // reseting the langauge before setting the content view
+        localeHelper = new LocaleHelper(this);
+        localeHelper.initLanguage();
+
         setContentView(R.layout.activity_see_barcode);
 
         barcodeImage = findViewById(R.id.barcode_image);

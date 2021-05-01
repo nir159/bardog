@@ -10,10 +10,16 @@ import android.widget.Button;
 public class TutorialActivity extends AppCompatActivity {
 
     Button okButton;
+    LocaleHelper localeHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // reseting the langauge before setting the content view
+        localeHelper = new LocaleHelper(this);
+        localeHelper.initLanguage();
+
         setContentView(R.layout.activity_tutorial);
 
         okButton = findViewById(R.id.ok_button);
