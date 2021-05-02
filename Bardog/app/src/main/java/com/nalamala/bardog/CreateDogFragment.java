@@ -44,7 +44,7 @@ public class CreateDogFragment extends Fragment {
     CircleImageView dog_profile_image;
     EditText dogNameInput;
     EditText isImmunizedInput;
-    EditText descInput;
+    EditText dogTypeInput;
     EditText ownerNameInput;
     EditText ownerPhoneInput;
     EditText commentsInput;
@@ -52,7 +52,7 @@ public class CreateDogFragment extends Fragment {
     Button saveButton;
     Button cancelButton;
 
-    DatabaseReference DataRef;
+    DatabaseReference dataRef;
 
     boolean isUpdating = false;
     boolean didImageChange = false;
@@ -73,7 +73,7 @@ public class CreateDogFragment extends Fragment {
         dog_profile_image = getView().findViewById(R.id.dog_image);
         dogNameInput = getView().findViewById(R.id.dog_name);
         isImmunizedInput = getView().findViewById(R.id.is_immunized);
-        descInput = getView().findViewById(R.id.description);
+        dogTypeInput = getView().findViewById(R.id.dog_type);
         ownerNameInput = getView().findViewById(R.id.owner_name);
         ownerPhoneInput = getView().findViewById(R.id.owner_phone);
         commentsInput = getView().findViewById(R.id.comments);
@@ -81,7 +81,7 @@ public class CreateDogFragment extends Fragment {
         saveButton = getView().findViewById(R.id.save_button);
         cancelButton = getView().findViewById(R.id.cancel_button);
 
-        DataRef = FirebaseDatabase.getInstance().getReference();
+        dataRef = FirebaseDatabase.getInstance().getReference();
 
         // if updating the dog information
         updateDogInfo = ((MainActivity) getActivity()).getExtraDog();
@@ -92,7 +92,7 @@ public class CreateDogFragment extends Fragment {
 
             dogNameInput.setText(updateDogInfo.getDogName());
             isImmunizedInput.setText(updateDogInfo.getIsImmunized());
-            descInput.setText(updateDogInfo.getDesc());
+            dogTypeInput.setText(updateDogInfo.getDesc());
             ownerNameInput.setText(updateDogInfo.getOwnerName());
             ownerPhoneInput.setText(updateDogInfo.getOwnerPhone());
             commentsInput.setText(updateDogInfo.getComments());
@@ -133,18 +133,18 @@ public class CreateDogFragment extends Fragment {
 
                 final String dogName = dogNameInput.getText().toString();
                 final String isImmunized = isImmunizedInput.getText().toString();
-                final String desc = descInput.getText().toString();
+                final String dogType = dogTypeInput.getText().toString();
                 final String ownerName = ownerNameInput.getText().toString();
                 final String ownerPhone = ownerPhoneInput.getText().toString();
                 final String comments = commentsInput.getText().toString();
                 final String birthDate = birthDateInput.getText().toString();
 
-                if (dogName.matches("") || isImmunized.matches("") || desc.matches("") || ownerName.matches("") || ownerPhone.matches("") || birthDate.matches("")) {
-                    Toast.makeText(getActivity(), "אנא מלא את כל השדות", Toast.LENGTH_SHORT).show();
+                if (dogName.matches("") || isImmunized.matches("") || dogType.matches("") || ownerName.matches("") || ownerPhone.matches("") || birthDate.matches("")) {
+                    Toast.makeText(getActivity(), R.string.fill_all, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (!didImageChange && !isUpdating) {
-                    Toast.makeText(getActivity(), "הקש על התמונה כדי להחליף אותה", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.change_image, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -185,11 +185,11 @@ public class CreateDogFragment extends Fragment {
                                                 public void onSuccess(Uri uri) {
 
                                                     // Once the image has been saved, updating the rest of the information
-                                                    DatabaseReference currUser = DataRef.child(CommonFunctions.DATABASE_DOGS_REF)
-                                                            .child(currentUserUid).child(dogID);
+                                                    DatabaseReference currUser = dataRef.child(CommonFunctions.DATABASE_USERS_REF)
+                                                            .child(currentUserUid).child(CommonFunctions.DATABASE_DOGS_REF).child(dogID);
                                                     currUser.child(CommonFunctions.DOG_NAME).setValue(dogName);
                                                     currUser.child(CommonFunctions.IS_IMMUNIZED).setValue(isImmunized);
-                                                    currUser.child(CommonFunctions.DOG_DESCRIPTION).setValue(desc);
+                                                    currUser.child(CommonFunctions.DOG_TYPE).setValue(dogType);
                                                     currUser.child(CommonFunctions.OWNER_NAME).setValue(ownerName);
                                                     currUser.child(CommonFunctions.OWNER_PHONE).setValue(ownerPhone);
                                                     currUser.child(CommonFunctions.COMMENTS).setValue(comments);
@@ -198,9 +198,9 @@ public class CreateDogFragment extends Fragment {
                                                     currUser.child(CommonFunctions.DOG_ID).setValue(dogID);
 
                                                     if (isUpdating)
-                                                        Toast.makeText(getActivity(), "הכלב עודכן בהצלחה!", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(getActivity(), R.string.updated_successfully, Toast.LENGTH_SHORT).show();
                                                     else
-                                                        Toast.makeText(getActivity(), "הכלב נוצר בהצלחה!", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(getActivity(), R.string.created_successfully, Toast.LENGTH_SHORT).show();
 
                                                     Bitmap barcode = CommonFunctions.getBarcode(getContext(), dogID);
 
@@ -219,17 +219,17 @@ public class CreateDogFragment extends Fragment {
                             });
                 } else {
                     // update all the information
-                    DatabaseReference currUser = DataRef.child(CommonFunctions.DATABASE_DOGS_REF)
-                            .child(currentUserUid).child(dogID);
+                    DatabaseReference currUser = dataRef.child(CommonFunctions.DATABASE_USERS_REF)
+                            .child(currentUserUid).child(CommonFunctions.DATABASE_DOGS_REF).child(dogID);
                     currUser.child(CommonFunctions.DOG_NAME).setValue(dogName);
                     currUser.child(CommonFunctions.IS_IMMUNIZED).setValue(isImmunized);
-                    currUser.child(CommonFunctions.DOG_DESCRIPTION).setValue(desc);
+                    currUser.child(CommonFunctions.DOG_TYPE).setValue(dogType);
                     currUser.child(CommonFunctions.OWNER_NAME).setValue(ownerName);
                     currUser.child(CommonFunctions.OWNER_PHONE).setValue(ownerPhone);
                     currUser.child(CommonFunctions.COMMENTS).setValue(comments);
                     currUser.child(CommonFunctions.BIRTH_DATE).setValue(birthDate);
 
-                    Toast.makeText(getActivity(), "הכלב שונה בהצלחה!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.updated_successfully, Toast.LENGTH_SHORT).show();
 
                     ((MainActivity) getActivity()).selectHomeFragment();
                 }

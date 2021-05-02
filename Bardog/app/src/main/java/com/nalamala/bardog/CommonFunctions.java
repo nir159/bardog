@@ -21,18 +21,23 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 public class CommonFunctions {
 
     // Database reference
-    public static final String DATABASE_DOGS_REF = "Users";
+    public static final String DATABASE_USERS_REF = "Users";
+    public static final String DATABASE_DOGS_REF = "Dogs";
     public static final String STORAGE_DOGS_IMAGES = "users";
+
+    // User firebase value
+    public static final String USER_FULL_NAME = "name";
+    public static final String USER_PHONE_NUMBER = "phone";
 
     // Dog class values
     public static final String DOG_NAME = "dog_name";
     public static final String IS_IMMUNIZED = "is_immunized";
-    public static final String DOG_DESCRIPTION = "desc";
+    public static final String DOG_TYPE = "type";
     public static final String OWNER_NAME = "owner_name";
     public static final String OWNER_PHONE = "owner_phone";
     public static final String PROFILE_IMAGE = "profile_img";
     public static final String COMMENTS = "comments";
-    public static final String BIRTH_DATE = "birth_date";
+    public static final String BIRTH_DATE = "birth_year";
     public static final String DOG_ID = "dogID";
 
 

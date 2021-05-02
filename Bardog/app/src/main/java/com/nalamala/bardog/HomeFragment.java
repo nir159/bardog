@@ -53,7 +53,8 @@ public class HomeFragment extends Fragment {
         //filterEditText = findViewById(R.id.filter_edit_text);
 
         listDogs = new ArrayList<>();
-        dogsRef = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_DOGS_REF).child(currentUserUid);
+        dogsRef = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_USERS_REF)
+                .child(currentUserUid).child(CommonFunctions.DATABASE_DOGS_REF);
         mContext = getContext();
 
         dogsRef.addValueEventListener(new ValueEventListener() {
@@ -66,7 +67,7 @@ public class HomeFragment extends Fragment {
 
                     Dog currDog = new Dog(ds.child(CommonFunctions.DOG_NAME).getValue(String.class),
                             ds.child(CommonFunctions.IS_IMMUNIZED).getValue(String.class),
-                            ds.child(CommonFunctions.DOG_DESCRIPTION).getValue(String.class),
+                            ds.child(CommonFunctions.DOG_TYPE).getValue(String.class),
                             ds.child(CommonFunctions.OWNER_NAME).getValue(String.class),
                             ds.child(CommonFunctions.OWNER_PHONE).getValue(String.class),
                             ds.child(CommonFunctions.COMMENTS).getValue(String.class),

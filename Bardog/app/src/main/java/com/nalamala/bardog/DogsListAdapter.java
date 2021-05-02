@@ -111,7 +111,8 @@ public class DogsListAdapter extends ArrayAdapter<Dog> implements View.OnClickLi
                     public void onSuccess(Void aVoid) {
 
                         // remove dog details
-                        dogsRef = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_DOGS_REF).child(currentUserUid);
+                        dogsRef = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_USERS_REF)
+                                .child(currentUserUid).child(CommonFunctions.DATABASE_DOGS_REF);
                         dogsRef.child(dog.getID()).setValue(null);
 
                         Toast.makeText(mContext, "הכלב נמחק", Toast.LENGTH_SHORT).show();

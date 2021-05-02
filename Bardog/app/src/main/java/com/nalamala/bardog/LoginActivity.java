@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                 final String password = passwordEditText.getText().toString();
 
                 if (email.matches("") || password.matches("")) {
-                    Toast.makeText(LoginActivity.this, "אנא מלא את כל השדות", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, R.string.fill_all, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -157,7 +157,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (!email.matches(emailPattern))
                 {
-                    Toast.makeText(LoginActivity.this,"אימייל שגוי",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,R.string.invalid_email,Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -175,8 +175,6 @@ public class LoginActivity extends AppCompatActivity {
                                     // user logged
                                     FirebaseUser user = mAuth.getCurrentUser();
 
-                                    Toast.makeText(LoginActivity.this, "מחובר", Toast.LENGTH_SHORT).show();
-
                                     Intent tutorial = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(tutorial);
 
@@ -185,7 +183,7 @@ public class LoginActivity extends AppCompatActivity {
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     bar.closeDialog();
-                                    Toast.makeText(LoginActivity.this, "סיסמא או אימייל שגויים", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, R.string.wrong_info, Toast.LENGTH_SHORT).show();
                                     Log.i("FIREBASE AUTH ERROR", "signInWithEmail:failure", task.getException());
                                 }
                             }
@@ -221,7 +219,7 @@ public class LoginActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // The ApiException status code indicates the detailed failure reason.
                 // Please refer to the GoogleSignInStatusCodes class reference for more information.
-                Toast.makeText(LoginActivity.this,  "אירעה שגיאה נסה דרך אחרת" + e.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this,  R.string.login_error, Toast.LENGTH_LONG).show();
                 bar.closeDialog();
             }
         }
@@ -243,7 +241,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(LoginActivity.this, "המייל כבר מקושר לגוגל. נסה להתחבר בעזרת גוגל", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, R.string.google_already_used, Toast.LENGTH_LONG).show();
                             bar.closeDialog();
                         }
                     }
@@ -270,7 +268,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(LoginActivity.this, "אירעה שגיאה נסה דרך אחרת", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, R.string.login_error, Toast.LENGTH_LONG).show();
                             LoginManager.getInstance().logOut();
                             bar.closeDialog();
                         }

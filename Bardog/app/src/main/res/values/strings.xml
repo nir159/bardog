@@ -6,15 +6,21 @@
     <string name="main_toolbar_title">Bardog</string>
 
     <!-- Create Dog Fragment -->
-    <string name="dog_name_input">Enter dog name…</string>
-    <string name="is_vaccinated_input">Is vaccinated?</string>
+    <string name="dog_name_input">Dog name</string>
+    <string name="vaccinated_input">Vaccinated?</string>
+    <string name="aggressive_input">Aggressive?</string>
+    <string name="allergies_input">Allergies?</string>
     <string name="dog_type_input">Dog type</string>
-    <string name="dog_birth_date_input">Birth date</string>
-    <string name="owner_name_input">Owner name</string>
-    <string name="owner_phone_input">Contact phone number</string>
-    <string name="extra_comments_input">Comments</string>
+    <string name="dog_birth_date_input">Birth year</string>
+    <string name="owner_info">Contact Information:</string>
+    <string name="extra_comments_input">Comments (Not Required)</string>
     <string name="cancel_button">Cancel</string>
     <string name="save_button">Save</string>
+    <string name="change_image">Add image to continue</string>
+    <string name="updated_successfully">Dog updated successfully</string>
+    <string name="created_successfully">Dog created successfully</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 
     <!-- Home Page Fragment -->
     <string name="my_dogs_title">My Dogs</string>
@@ -60,16 +66,26 @@
     <string name="login_button">Login</string>
     <string name="login_using_google">Login With Google</string>
     <string name="not_registered_yet">not registered yet?</string>
+    <string name="or">or</string>
     <string name="register_link_button">register</string>
-
+    <string name="wrong_info">Wrong email or password</string>
+    <string name="login_error">Error. Please try another method</string>
+    <string name="google_already_used">A google account with the same email already exists</string>
 
     <!-- Register Activity -->
     <string name="register_title">Register</string>
     <string name="register_email_input_hint">Email</string>
     <string name="register_password_input_hint">Password</string>
+    <string name="register_name_input_hint">Full Name</string>
+    <string name="register_phone_input_hint">Phone Number</string>
     <string name="register_button">Register</string>
     <string name="already_registered">already registered?</string>
     <string name="login_link_button">login</string>
+    <string name="fill_all">Please enter all fields</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="invalid_password">Password must contain at least 8 characters</string>
+    <string name="user_exists">user with that email already exists</string>
+    <string name="user_created_successfully">User created successfully</string>
 
     <!-- See Barcode Activity -->
     <string name="see_barcode_title" translatable="false">YOUR BARDOG</string>

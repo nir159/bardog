@@ -5,14 +5,20 @@
 
     <!-- Create Dog Fragment -->
     <string name="dog_name_input">שם הכלב</string>
-    <string name="is_vaccinated_input">האם הכלב מחוסן?</string>
+    <string name="vaccinated_input">מחוסן?</string>
+    <string name="aggressive_input">אגרסיבי?</string>
+    <string name="allergies_input">אלרגיות?</string>
     <string name="dog_type_input">סוג הכלב</string>
-    <string name="dog_birth_date_input">תאריך לידה של הכלב</string>
-    <string name="owner_name_input">שם הבעלים</string>
-    <string name="owner_phone_input">מספר טלפון למקרי חירום</string>
+    <string name="dog_birth_date_input">שנת לידה</string>
+    <string name="owner_info">פרטים ליצירת קשר:</string>
     <string name="extra_comments_input">הערות נוספות (לא חובה)</string>
     <string name="cancel_button">ביטול</string>
     <string name="save_button">שמור</string>
+    <string name="change_image">אנא בחר תמונה חדשה</string>
+    <string name="updated_successfully">הכלב עודכן בהצלחה!</string>
+    <string name="created_successfully">הכלב נוצר בהצלחה!</string>
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
 
     <!-- Home Page Fragment -->
     <string name="my_dogs_title">הכלבים שלי</string>
@@ -73,15 +79,26 @@
     <string name="login_button">התחבר</string>
     <string name="login_using_google">התחבר בעזרת גוגל</string>
     <string name="not_registered_yet">עדיין לא רשום לbardog?</string>
+    <string name="or">או</string>
     <string name="register_link_button">הרשם</string>
+    <string name="wrong_info">סיסמא או אימייל שגויים</string>
+    <string name="login_error">אירעה שגיאה נסה דרך אחרת</string>
+    <string name="google_already_used">קיים כבר חשבון גוגל עם אותה הכתובת</string>
 
     <!-- Register Activity -->
     <string name="register_title">הרשמה</string>
     <string name="register_email_input_hint">אימייל</string>
     <string name="register_password_input_hint">סיסמא</string>
+    <string name="register_name_input_hint">שם מלא</string>
+    <string name="register_phone_input_hint">מספר טלפון</string>
     <string name="register_button">הרשם</string>
     <string name="already_registered">כבר רשום לbardog?</string>
     <string name="login_link_button">התחבר</string>
+    <string name="fill_all">אנא מלא את כל השדות</string>
+    <string name="invalid_email">אימייל שגוי</string>
+    <string name="invalid_password">הסיסמא חייבת להכיל לפחות 8 תווים</string>
+    <string name="user_exists">המשתמש כבר קיים נסה להתחבר</string>
+    <string name="user_created_successfully">המשתמש נוצר בהצלחה</string>
 
     <!-- See Barcode Activity -->
     <string name="go_back_button">חזור</string>

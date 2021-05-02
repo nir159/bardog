@@ -17,7 +17,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SeeDogActivity extends AppCompatActivity {
 
-    DatabaseReference dogsRef = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_DOGS_REF);
+    DatabaseReference usersRef;
     CircleImageView profileImage;
     LocaleHelper localeHelper;
     TextView dogName;
@@ -50,7 +50,9 @@ public class SeeDogActivity extends AppCompatActivity {
         String dogID = bits[bits.length-1];
         String userID = bits[bits.length-2];
 
-        dogsRef.child(userID).child(dogID).addValueEventListener(new ValueEventListener() {
+        usersRef = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_USERS_REF);
+
+        usersRef.child(userID).child(CommonFunctions.DATABASE_DOGS_REF).child(dogID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -61,7 +63,7 @@ public class SeeDogActivity extends AppCompatActivity {
 
                 dogName.setText(snapshot.child(CommonFunctions.DOG_NAME).getValue().toString());
                 isImmuned.setText(snapshot.child(CommonFunctions.IS_IMMUNIZED).getValue().toString());
-                desc.setText(snapshot.child(CommonFunctions.DOG_DESCRIPTION).getValue().toString());
+                desc.setText(snapshot.child(CommonFunctions.DOG_TYPE).getValue().toString());
                 ownerInfo.setText(snapshot.child(CommonFunctions.OWNER_NAME).getValue().toString() + " - " + snapshot.child(CommonFunctions.OWNER_PHONE).getValue().toString());
                 comments.setText(snapshot.child(CommonFunctions.COMMENTS).getValue().toString());
                 birthDate.setText("Birth Date: " + snapshot.child(CommonFunctions.BIRTH_DATE).getValue().toString());
