@@ -31,6 +31,9 @@
     <!-- Settings Fragment -->
     <string name="settings_title">Settings</string>
     <string name="change_language_button">Language</string>
+    <string name="edit_user_button">Edit</string>
+    <string name="delete_user_button">Delete Account</string>
+    <string name="are_you_sure">Are you sure you want to delete your account?</string>
 
     <!-- FAQ Fragment -->
     <string name="faq_title">FAQ</string>

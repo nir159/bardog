@@ -29,6 +29,9 @@
     <!-- Settings Fragment -->
     <string name="settings_title">הגדרות</string>
     <string name="change_language_button">שפה</string>
+    <string name="edit_user_button">ערוך</string>
+    <string name="delete_user_button">מחק משתמש</string>
+    <string name="are_you_sure">האם למחוק את המשתמש ואת כל התוכן שהוא מכיל?</string>
 
     <!-- FAQ Fragment -->
     <string name="faq_title">שאלות נפוצות</string>

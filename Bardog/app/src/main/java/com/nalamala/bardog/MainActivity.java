@@ -154,6 +154,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return temp;
     }
 
+    public void exitActivity() {
+        Intent login = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(login);
+        finish();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

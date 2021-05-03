@@ -69,7 +69,7 @@ public class SeeDogActivity extends AppCompatActivity {
                 else
                     isImmuned.setText(R.string.dog_not_immuned);
 
-                String type = R.string.type + snapshot.child(CommonFunctions.DOG_TYPE).getValue().toString();
+                String type = getString(R.string.type) + snapshot.child(CommonFunctions.DOG_TYPE).getValue().toString();
                 dogType.setText(type);
 
                 String ownerInfoString = snapshot.child(CommonFunctions.OWNER_NAME).getValue().toString() + " - " + snapshot.child(CommonFunctions.OWNER_PHONE).getValue().toString();
@@ -78,7 +78,7 @@ public class SeeDogActivity extends AppCompatActivity {
 
                 int year = Calendar.getInstance().get(Calendar.YEAR);
                 int dogsBirthYear = Integer.parseInt(snapshot.child(CommonFunctions.BIRTH_DATE).getValue().toString());
-                String ageText = R.string.dog_age + String.valueOf(year - dogsBirthYear);
+                String ageText = getString(R.string.dog_age) + String.valueOf(year - dogsBirthYear);
                 birthYear.setText(ageText);
 
             }

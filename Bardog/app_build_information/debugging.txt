@@ -1,13 +1,5 @@
 TODO:
 
-* release and api 26 firebase multidex error
-
-* check if google signin works in release mode
-
-* modify all user input - email verification and password reset
-
-* keep uploading files to git
-
 notes:
 
 - Release alias is "Bardog Alias"
