@@ -45,7 +45,7 @@
     android:id="@+id/nameInputLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="20dp"
     android:hint="@string/register_name_input_hint">
 
     <com.google.android.material.textfield.TextInputEditText
@@ -53,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/custom_name_icon"
+        android:textColor="@color/colorPrimaryLight"
         android:drawablePadding="10dp"
         android:padding="10dp"
         android:enabled="false"
@@ -79,6 +80,7 @@
             android:id="@+id/phone_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryLight"
             android:drawableStart="@drawable/custom_phone_icon"
             android:drawablePadding="10dp"
             android:padding="10dp"

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,8 +25,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
@@ -37,7 +41,11 @@ public class SettingsFragment extends Fragment {
     final String[] languages = {"English", "עברית"};
     Button languageButton;
     Button deleteAccButton;
+    Button editAccDetails;
     LocaleHelper localeHelper;
+    EditText phoneEditText;
+    EditText nameEditText;
+    boolean isEditing;
 
     @Nullable
     @Override
@@ -49,10 +57,36 @@ public class SettingsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        isEditing = false;
+
         localeHelper = new LocaleHelper(getContext());
 
         languageButton = getView().findViewById(R.id.language_button);
         deleteAccButton = getView().findViewById(R.id.delete_user);
+        editAccDetails = getView().findViewById(R.id.edit_user);
+        phoneEditText = getView().findViewById(R.id.phone_edit_text);
+        nameEditText = getView().findViewById(R.id.name_edit_text);
+
+        final String currentUserUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_USERS_REF)
+                .child(currentUserUid);
+
+        userRef.addValueEventListener(new ValueEventListener() {
+              @Override
+              public void onDataChange(@NonNull DataSnapshot snapshot) {
+                  String userName = snapshot.child(CommonFunctions.USER_FULL_NAME).getValue(String.class);
+                  String userPhone = snapshot.child(CommonFunctions.USER_PHONE_NUMBER).getValue(String.class);
+
+                  nameEditText.setText(userName);
+                  phoneEditText.setText(userPhone);
+              }
+
+              @Override
+              public void onCancelled(@NonNull DatabaseError error) {
+
+              }
+          });
 
         languageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +116,41 @@ public class SettingsFragment extends Fragment {
                     }
 
                 }).create().show();
+            }
+        });
+
+        editAccDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isEditing) {
+                    editAccDetails.setText(R.string.save_info_button);
+                    phoneEditText.setEnabled(true);
+                    nameEditText.setEnabled(true);
+                    isEditing = true;
+                }
+                else {
+                    final String phone = phoneEditText.getText().toString();
+                    final String name = nameEditText.getText().toString();
+
+                    if (name.matches("") || phone.matches("")) {
+                        Toast.makeText(getContext(), R.string.fill_all, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    phoneEditText.setEnabled(false);
+                    nameEditText.setEnabled(false);
+
+                    String currentUserUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                    DatabaseReference currUser = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_USERS_REF)
+                            .child(currentUserUid);
+
+                    currUser.child(CommonFunctions.USER_FULL_NAME).setValue(name);
+                    currUser.child(CommonFunctions.USER_PHONE_NUMBER).setValue(phone);
+
+                    editAccDetails.setText(R.string.edit_user_button);
+                    isEditing = false;
+                }
             }
         });
 

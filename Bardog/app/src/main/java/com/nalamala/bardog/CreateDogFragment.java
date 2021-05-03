@@ -25,8 +25,11 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -112,6 +115,25 @@ public class CreateDogFragment extends Fragment {
             birthYearInput.setText(updateDogInfo.getBirthDate());
 
             isUpdating = true;
+        }
+        else {
+            // auto fill contact information
+            dataRef.child(CommonFunctions.DATABASE_USERS_REF)
+                    .child(currentUserUid).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String userName = snapshot.child(CommonFunctions.USER_FULL_NAME).getValue(String.class);
+                    String userPhone = snapshot.child(CommonFunctions.USER_PHONE_NUMBER).getValue(String.class);
+
+                    ownerNameInput.setText(userName);
+                    ownerPhoneInput.setText(userPhone);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
 
         final LoadingBar bar = new LoadingBar(getActivity());
