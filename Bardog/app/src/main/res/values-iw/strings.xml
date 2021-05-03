@@ -15,6 +15,7 @@
     <string name="cancel_button">ביטול</string>
     <string name="save_button">שמור</string>
     <string name="change_image">אנא בחר תמונה חדשה</string>
+    <string name="change_year">שנת הלידה שגויה</string>
     <string name="updated_successfully">הכלב עודכן בהצלחה!</string>
     <string name="created_successfully">הכלב נוצר בהצלחה!</string>
     <string name="yes">כן</string>
@@ -107,6 +108,10 @@
     <!-- See Dog Activity -->
     <string name="loading_title">טוען…</string>
     <string name="please_wait_textview">אנא המתן עד לסוף הטעינה</string>
+    <string name="dog_immuned">הכלב מחוסן</string>
+    <string name="dog_not_immuned">הכלב אינו מחוסן</string>
+    <string name="dog_age">גיל: </string>
+    <string name="type">סוג: </string>
 
     <!-- Tutorial Activity -->
     <string name="tutorial_small_text">האפליקציה מאפשרת לך להכניס את הפרטים של הכלבים שלך ולקבל ברקוד שכאשר סורקים אותו האפליקציה מראה את הפרטים על אותו הכלב בתוך bardog. המטרה העיקרית של האפליקציה היא לתת מידע במקרה שבו הכלב נעלם עבור מי שימצא אותו ולכן נשים את הברקוד על הקולר או שנצמיד אותו בדרך שבה כולם יוכלו לראות את הברקוד</string>

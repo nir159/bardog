@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -43,12 +46,12 @@ public class CreateDogFragment extends Fragment {
 
     CircleImageView dog_profile_image;
     EditText dogNameInput;
-    EditText isImmunizedInput;
+    RadioGroup isImmunizedInput;
     EditText dogTypeInput;
     EditText ownerNameInput;
     EditText ownerPhoneInput;
     EditText commentsInput;
-    EditText birthDateInput;
+    EditText birthYearInput;
     Button saveButton;
     Button cancelButton;
 
@@ -72,12 +75,13 @@ public class CreateDogFragment extends Fragment {
 
         dog_profile_image = getView().findViewById(R.id.dog_image);
         dogNameInput = getView().findViewById(R.id.dog_name);
-        isImmunizedInput = getView().findViewById(R.id.is_immunized);
         dogTypeInput = getView().findViewById(R.id.dog_type);
+        birthYearInput = getView().findViewById(R.id.birth_date);
+        isImmunizedInput = getView().findViewById(R.id.is_immunized);
+        commentsInput = getView().findViewById(R.id.comments);
         ownerNameInput = getView().findViewById(R.id.owner_name);
         ownerPhoneInput = getView().findViewById(R.id.owner_phone);
-        commentsInput = getView().findViewById(R.id.comments);
-        birthDateInput = getView().findViewById(R.id.birth_date);
+
         saveButton = getView().findViewById(R.id.save_button);
         cancelButton = getView().findViewById(R.id.cancel_button);
 
@@ -91,12 +95,21 @@ public class CreateDogFragment extends Fragment {
             // glide is faster than Picasso.with(this).load(updateDogInfo.getProfileImage()).into(dog_profile_image);
 
             dogNameInput.setText(updateDogInfo.getDogName());
-            isImmunizedInput.setText(updateDogInfo.getIsImmunized());
+
+            if (updateDogInfo.getIsImmunized().equals("yes")) {
+                RadioButton radioButton = (RadioButton) isImmunizedInput.getChildAt(0);
+                isImmunizedInput.check(radioButton.getId());
+            }
+            else {
+                RadioButton radioButton = (RadioButton) isImmunizedInput.getChildAt(1);
+                isImmunizedInput.check(radioButton.getId());
+            }
+
             dogTypeInput.setText(updateDogInfo.getDesc());
             ownerNameInput.setText(updateDogInfo.getOwnerName());
             ownerPhoneInput.setText(updateDogInfo.getOwnerPhone());
             commentsInput.setText(updateDogInfo.getComments());
-            birthDateInput.setText(updateDogInfo.getBirthDate());
+            birthYearInput.setText(updateDogInfo.getBirthDate());
 
             isUpdating = true;
         }
@@ -132,14 +145,14 @@ public class CreateDogFragment extends Fragment {
             public void onClick(View v) {
 
                 final String dogName = dogNameInput.getText().toString();
-                final String isImmunized = isImmunizedInput.getText().toString();
+                final int isImmunizedChecked = isImmunizedInput.getCheckedRadioButtonId();
                 final String dogType = dogTypeInput.getText().toString();
                 final String ownerName = ownerNameInput.getText().toString();
                 final String ownerPhone = ownerPhoneInput.getText().toString();
                 final String comments = commentsInput.getText().toString();
-                final String birthDate = birthDateInput.getText().toString();
+                final String birthYear = birthYearInput.getText().toString();
 
-                if (dogName.matches("") || isImmunized.matches("") || dogType.matches("") || ownerName.matches("") || ownerPhone.matches("") || birthDate.matches("")) {
+                if (dogName.matches("") || isImmunizedChecked == -1 || dogType.matches("") || ownerName.matches("") || ownerPhone.matches("") || birthYear.matches("")) {
                     Toast.makeText(getActivity(), R.string.fill_all, Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -147,6 +160,14 @@ public class CreateDogFragment extends Fragment {
                     Toast.makeText(getActivity(), R.string.change_image, Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                int year = Calendar.getInstance().get(Calendar.YEAR);
+                if (Integer.parseInt(birthYear) > year || Integer.parseInt(birthYear) < year-100) {
+                    Toast.makeText(getActivity(), R.string.change_year, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                String isImmunized = ((RadioButton)getView().findViewById(isImmunizedChecked)).getText().toString();
 
                 final String dogID;
                 if (isUpdating) {
@@ -193,7 +214,7 @@ public class CreateDogFragment extends Fragment {
                                                     currUser.child(CommonFunctions.OWNER_NAME).setValue(ownerName);
                                                     currUser.child(CommonFunctions.OWNER_PHONE).setValue(ownerPhone);
                                                     currUser.child(CommonFunctions.COMMENTS).setValue(comments);
-                                                    currUser.child(CommonFunctions.BIRTH_DATE).setValue(birthDate);
+                                                    currUser.child(CommonFunctions.BIRTH_DATE).setValue(birthYear);
                                                     currUser.child(CommonFunctions.PROFILE_IMAGE).setValue(uri.toString());
                                                     currUser.child(CommonFunctions.DOG_ID).setValue(dogID);
 
@@ -227,7 +248,7 @@ public class CreateDogFragment extends Fragment {
                     currUser.child(CommonFunctions.OWNER_NAME).setValue(ownerName);
                     currUser.child(CommonFunctions.OWNER_PHONE).setValue(ownerPhone);
                     currUser.child(CommonFunctions.COMMENTS).setValue(comments);
-                    currUser.child(CommonFunctions.BIRTH_DATE).setValue(birthDate);
+                    currUser.child(CommonFunctions.BIRTH_DATE).setValue(birthYear);
 
                     Toast.makeText(getActivity(), R.string.updated_successfully, Toast.LENGTH_SHORT).show();
 

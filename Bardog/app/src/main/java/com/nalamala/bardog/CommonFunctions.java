@@ -18,6 +18,9 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class CommonFunctions {
 
     // Database reference

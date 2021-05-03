@@ -17,6 +17,7 @@
     <string name="cancel_button">Cancel</string>
     <string name="save_button">Save</string>
     <string name="change_image">Add image to continue</string>
+    <string name="change_year">Birth year is invalid</string>
     <string name="updated_successfully">Dog updated successfully</string>
     <string name="created_successfully">Dog created successfully</string>
     <string name="yes">yes</string>
@@ -95,6 +96,10 @@
     <!-- See Dog Activity -->
     <string name="loading_title">Loading…</string>
     <string name="please_wait_textview">please wait for a few seconds</string>
+    <string name="dog_immuned">Dog is immunized</string>
+    <string name="dog_not_immuned">Dog is not immunized</string>
+    <string name="dog_age">Age: </string>
+    <string name="type">Type: </string>
 
     <!-- Tutorial Activity -->
     <string name="tutorial_small_text">Enter tutorial in here</string>

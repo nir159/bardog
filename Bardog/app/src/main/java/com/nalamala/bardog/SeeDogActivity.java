@@ -13,6 +13,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SeeDogActivity extends AppCompatActivity {
@@ -22,10 +24,10 @@ public class SeeDogActivity extends AppCompatActivity {
     LocaleHelper localeHelper;
     TextView dogName;
     TextView isImmuned;
-    TextView desc;
+    TextView dogType;
     TextView ownerInfo;
     TextView comments;
-    TextView birthDate;
+    TextView birthYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +42,10 @@ public class SeeDogActivity extends AppCompatActivity {
         profileImage = findViewById(R.id.dog_image);
         dogName = findViewById(R.id.dog_name);
         isImmuned = findViewById(R.id.is_immunized);
-        desc = findViewById(R.id.description);
+        dogType = findViewById(R.id.dog_type);
         ownerInfo = findViewById(R.id.owner_info);
         comments = findViewById(R.id.comments);
-        birthDate = findViewById(R.id.birth_date);
+        birthYear = findViewById(R.id.birth_date);
 
         String uri = getIntent().getDataString();
         String[] bits = uri.split("~", 0);
@@ -62,11 +64,22 @@ public class SeeDogActivity extends AppCompatActivity {
                 // Picasso.with(SeeDogActivity.this).load(dogProfileImageUrl).into(profileImage);
 
                 dogName.setText(snapshot.child(CommonFunctions.DOG_NAME).getValue().toString());
-                isImmuned.setText(snapshot.child(CommonFunctions.IS_IMMUNIZED).getValue().toString());
-                desc.setText(snapshot.child(CommonFunctions.DOG_TYPE).getValue().toString());
-                ownerInfo.setText(snapshot.child(CommonFunctions.OWNER_NAME).getValue().toString() + " - " + snapshot.child(CommonFunctions.OWNER_PHONE).getValue().toString());
+                if (snapshot.child(CommonFunctions.IS_IMMUNIZED).getValue().toString().equals("yes"))
+                    isImmuned.setText(R.string.dog_immuned);
+                else
+                    isImmuned.setText(R.string.dog_not_immuned);
+
+                String type = R.string.type + snapshot.child(CommonFunctions.DOG_TYPE).getValue().toString();
+                dogType.setText(type);
+
+                String ownerInfoString = snapshot.child(CommonFunctions.OWNER_NAME).getValue().toString() + " - " + snapshot.child(CommonFunctions.OWNER_PHONE).getValue().toString();
+                ownerInfo.setText(ownerInfoString);
                 comments.setText(snapshot.child(CommonFunctions.COMMENTS).getValue().toString());
-                birthDate.setText("Birth Date: " + snapshot.child(CommonFunctions.BIRTH_DATE).getValue().toString());
+
+                int year = Calendar.getInstance().get(Calendar.YEAR);
+                int dogsBirthYear = Integer.parseInt(snapshot.child(CommonFunctions.BIRTH_DATE).getValue().toString());
+                String ageText = R.string.dog_age + String.valueOf(year - dogsBirthYear);
+                birthYear.setText(ageText);
 
             }
 
