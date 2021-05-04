@@ -35,6 +35,15 @@
             android:text="@string/register_license_title"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimaryLight"
+            android:text="@string/tutorial_small_text"
+            />
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeWidth="5dp"
@@ -81,7 +90,42 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal" >
 
+            <CheckBox
+                android:id="@+id/agree_to_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimaryLight"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryLight"
+                android:layout_gravity="center"
+                android:layout_marginEnd="25dp"
+                android:text="@string/terms_text"
+                />
+
+            <Button
+                android:id="@+id/terms_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/zxing_transparent"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:text="@string/terms_button"
+                />
+
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/register_button"
@@ -92,37 +136,6 @@
             android:background="@drawable/button_primary_gradient"
             android:text="@string/register_button"
             />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimaryLight"
-                android:layout_gravity="center"
-                android:layout_marginEnd="25dp"
-                android:text="@string/already_registered"
-                />
-
-            <Button
-                android:id="@+id/login_link_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/zxing_transparent"
-                android:textSize="20sp"
-                android:textColor="@color/colorPrimary"
-                android:layout_gravity="center"
-                android:text="@string/login_link_button"
-                />
-
-
-        </LinearLayout>
 
     </LinearLayout>
 

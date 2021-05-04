@@ -2,11 +2,14 @@ package com.nalamala.bardog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,7 +21,9 @@ public class RegisterLicense extends AppCompatActivity {
 
     EditText nameEditText;
     EditText phoneEditText;
+    CheckBox agreeToTerms;
     Button registerButton;
+    Button termsButton;
 
 
     @Override
@@ -36,6 +41,8 @@ public class RegisterLicense extends AppCompatActivity {
 
         nameEditText = findViewById(R.id.name_edit_text);
         phoneEditText = findViewById(R.id.phone_edit_text);
+        agreeToTerms = findViewById(R.id.agree_to_terms);
+        termsButton = findViewById(R.id.terms_button);
         registerButton = findViewById(R.id.register_button);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +53,12 @@ public class RegisterLicense extends AppCompatActivity {
 
                 if (name.matches("") || phone.matches("")) {
                     Toast.makeText(RegisterLicense.this, R.string.fill_all, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!agreeToTerms.isChecked()) {
+
+                    Toast.makeText(RegisterLicense.this, R.string.agree_to_terms, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -60,6 +73,21 @@ public class RegisterLicense extends AppCompatActivity {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.remove(CommonFunctions.LICENSE_PROCESS);
                 editor.apply();
+
+                Intent main = new Intent(RegisterLicense.this, MainActivity.class);
+                startActivity(main);
+                finish();
+            }
+        });
+
+        termsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://sites.google.com/view/bardog-privacy-policy/%D7%91%D7%99%D7%AA"));
+                startActivity(intent);
             }
         });
     }

@@ -107,6 +107,10 @@
 
     <!-- Register License Activity -->
     <string name="register_license_title">BARDOG</string>
+    <string name="tutorial_small_text">האפליקציה מאפשרת לך להכניס את הפרטים של הכלבים שלך ולקבל ברקוד שכאשר סורקים אותו האפליקציה מראה את הפרטים על אותו הכלב בתוך bardog. המטרה העיקרית של האפליקציה היא לתת מידע במקרה שבו הכלב נעלם עבור מי שימצא אותו ולכן נשים את הברקוד על הקולר או שנצמיד אותו בדרך שבה כולם יוכלו לראות את הברקוד</string>
+    <string name="terms_text">אני מאשר את </string>
+    <string name="terms_button">תנאי השימוש</string>
+    <string name="agree_to_terms">אשר את תנאי השימוש כדי להמשיך</string>
 
     <!-- Register Activity -->
     <string name="register_title">הרשמה</string>
@@ -134,10 +138,6 @@
     <string name="dog_not_immuned">הכלב אינו מחוסן</string>
     <string name="dog_age">גיל: </string>
     <string name="type">סוג: </string>
-
-    <!-- Tutorial Activity -->
-    <string name="tutorial_small_text">האפליקציה מאפשרת לך להכניס את הפרטים של הכלבים שלך ולקבל ברקוד שכאשר סורקים אותו האפליקציה מראה את הפרטים על אותו הכלב בתוך bardog. המטרה העיקרית של האפליקציה היא לתת מידע במקרה שבו הכלב נעלם עבור מי שימצא אותו ולכן נשים את הברקוד על הקולר או שנצמיד אותו בדרך שבה כולם יוכלו לראות את הברקוד</string>
-    <string name="understood_button">הבנתי</string>
 
     <!-- Dog List Item Class -->
     <string name="generate_barcode_button">ברקוד</string>

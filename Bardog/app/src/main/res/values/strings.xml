@@ -94,6 +94,10 @@
 
     <!-- Register License Activity -->
     <string name="register_license_title">BARDOG</string>
+    <string name="tutorial_small_text">Enter tutorial in here - some explanation to the user to make the user feel better about the app and giving away info</string>
+    <string name="terms_text">I agree to the </string>
+    <string name="terms_button">Terms and Conditions</string>
+    <string name="agree_to_terms">Please agree to the terms and conditions to continue</string>
 
     <!-- Register Activity -->
     <string name="register_title">Register</string>
@@ -122,10 +126,6 @@
     <string name="dog_not_immuned">Dog is not immunized</string>
     <string name="dog_age">Age: </string>
     <string name="type">Type: </string>
-
-    <!-- Tutorial Activity -->
-    <string name="tutorial_small_text">Enter tutorial in here</string>
-    <string name="understood_button">I Understand</string>
 
     <!-- Dog List Item Class -->
     <string name="generate_barcode_button">Barcode</string>
