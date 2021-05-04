@@ -118,24 +118,43 @@ public class RegisterActivity extends AppCompatActivity {
                                                             @Override
                                                             public void onClick(DialogInterface dialog, int which) {
 
-                                                                if (user.isEmailVerified()) {
+                                                                FirebaseAuth.getInstance().signOut();
+                                                                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                                                        if (task.isSuccessful()) {
 
-                                                                    verifyProcess = false;
+                                                                            FirebaseUser user = mAuth.getCurrentUser();
 
-                                                                    Toast.makeText(RegisterActivity.this, R.string.user_created_successfully, Toast.LENGTH_SHORT).show();
+                                                                            if (user.isEmailVerified()) {
 
-                                                                    Intent tutorial = new Intent(RegisterActivity.this, RegisterLicense.class);
-                                                                    startActivity(tutorial);
+                                                                                verifyProcess = false;
 
-                                                                    finish();
+                                                                                Toast.makeText(RegisterActivity.this, R.string.user_created_successfully, Toast.LENGTH_SHORT).show();
 
-                                                                }
-                                                                else {
-                                                                    Toast.makeText(RegisterActivity.this, R.string.not_verified, Toast.LENGTH_SHORT).show();
-                                                                    user.delete();
-                                                                    FirebaseAuth.getInstance().signOut();
-                                                                    verifyProcess = false;
-                                                                }
+                                                                                Intent license = new Intent(RegisterActivity.this, RegisterLicense.class);
+                                                                                startActivity(license);
+
+                                                                                finish();
+
+                                                                            }
+                                                                            else {
+                                                                                Toast.makeText(RegisterActivity.this, R.string.not_verified, Toast.LENGTH_SHORT).show();
+                                                                                user.delete();
+                                                                                FirebaseAuth.getInstance().signOut();
+                                                                                verifyProcess = false;
+                                                                            }
+
+                                                                        }
+                                                                        else {
+                                                                            Toast.makeText(RegisterActivity.this, R.string.not_verified, Toast.LENGTH_SHORT).show();
+                                                                            user.delete();
+                                                                            FirebaseAuth.getInstance().signOut();
+                                                                            verifyProcess = false;
+                                                                        }
+                                                                    }
+                                                                });
+
                                                             }
                                                         })
                                                         .setNegativeButton(R.string.cancel_button, new DialogInterface.OnClickListener() {

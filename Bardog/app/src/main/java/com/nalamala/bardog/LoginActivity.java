@@ -213,9 +213,6 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
 
-                                    // user logged
-                                    FirebaseUser user = mAuth.getCurrentUser();
-
                                     Intent tutorial = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(tutorial);
 
@@ -273,13 +270,24 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Intent tutorial = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(tutorial);
 
-                            bar.closeDialog();
-                            finish();
+                            boolean isNewUser = task.getResult().getAdditionalUserInfo().isNewUser();
+
+                            if (isNewUser) {
+                                Intent license = new Intent(LoginActivity.this, RegisterLicense.class);
+                                startActivity(license);
+
+                                bar.closeDialog();
+                                finish();
+                            }
+                            else {
+                                Intent main = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(main);
+
+                                bar.closeDialog();
+                                finish();
+                            }
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LoginActivity.this, R.string.google_already_used, Toast.LENGTH_LONG).show();
@@ -299,14 +307,23 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
 
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.i("FIREBASE GOOGLE LOGIN", "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Intent tutorial = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(tutorial);
+                            boolean isNewUser = task.getResult().getAdditionalUserInfo().isNewUser();
 
-                            bar.closeDialog();
-                            finish();
+                            if (isNewUser) {
+                                Intent license = new Intent(LoginActivity.this, RegisterLicense.class);
+                                startActivity(license);
+
+                                bar.closeDialog();
+                                finish();
+                            }
+                            else {
+                                Intent main = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(main);
+
+                                bar.closeDialog();
+                                finish();
+                            }
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LoginActivity.this, R.string.login_error, Toast.LENGTH_LONG).show();
