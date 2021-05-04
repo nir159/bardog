@@ -43,6 +43,9 @@ public class CommonFunctions {
     public static final String BIRTH_DATE = "birth_year";
     public static final String DOG_ID = "dogID";
 
+    // Register License Activity
+    public static final String LICENSE_PROCESS = "license";
+
 
     // Generates a barcode
     public static Bitmap getBarcode(Context mContext, String dogID) {

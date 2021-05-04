@@ -7,12 +7,14 @@ import androidx.multidex.MultiDex;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.view.View;
 
@@ -61,16 +63,25 @@ public class SplashActivity extends AppCompatActivity {
         }
         else {
             final Handler handler = new Handler(Looper.getMainLooper());
+            final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // if logged load dogs and save in memory
 
-                    Intent register = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(register);
-                    finish();
+                    if(preferences.getString(CommonFunctions.LICENSE_PROCESS, null) != null) {
+                        // User can't leave until accepting the terms and conditions
+                        Intent registerLicense = new Intent(SplashActivity.this, RegisterLicense.class);
+                        startActivity(registerLicense);
+                        finish();
+                    }
+                    else {
+                        Intent register = new Intent(SplashActivity.this, LoginActivity.class);
+                        startActivity(register);
+                        finish();
+                    }
                 }
             }, 3000);
+
         }
     }
 }
