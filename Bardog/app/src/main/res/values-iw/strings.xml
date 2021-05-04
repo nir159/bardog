@@ -91,6 +91,23 @@
     <string name="login_error">אירעה שגיאה נסה דרך אחרת</string>
     <string name="google_already_used">קיים כבר חשבון גוגל עם אותה הכתובת</string>
 
+    <!-- Reset Password Dialog -->
+    <string name="reset_password_title">איפוס סיסמא</string>
+    <string name="reset_password_message">הכנס את המייל לאיפוס הסיסמא</string>
+    <string name="send_message">שלח</string>
+    <string name="email_sent">המייל נשלח אל הכתובת</string>
+
+    <!-- Verify Email Dialog -->
+    <string name="verify_dialog_title">אישור מייל</string>
+    <string name="verify_dialog_message">הודעה עם אישור נשלחה אל הכתובת. אנא אשר את המייל ולחץ על המשך</string>
+    <string name="verified">המשך</string>
+    <string name="not_verified">המייל לא אושר</string>
+    <string name="resend_email">שלח שוב</string>
+    <string name="verify_email_sent">אשר את המייל בעזרת ההודעה שנשלחה ולחץ על המשך</string>
+
+    <!-- Register License Activity -->
+    <string name="register_license_title">BARDOG</string>
+
     <!-- Register Activity -->
     <string name="register_title">הרשמה</string>
     <string name="register_email_input_hint">אימייל</string>

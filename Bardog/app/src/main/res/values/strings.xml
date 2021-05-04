@@ -79,22 +79,21 @@
     <string name="google_already_used">A google account with the same email already exists</string>
 
     <!-- Reset Password Dialog -->
-    <string name="reset_password_title">Login</string>
-    <string name="reset_password_message">Login</string>
-    <string name="send_message">Login</string>
+    <string name="reset_password_title">Reset Password</string>
+    <string name="reset_password_message">Enter email for the reset password</string>
+    <string name="send_message">Send</string>
     <string name="email_sent">Reset password email was sent!</string>
 
     <!-- Verify Email Dialog -->
-    <string name="verify_email">Login</string>
-    <string name="verified">Login</string>
-    <string name="resend_email">Login</string>
-    <string name="verify_email_sent">Reset password email was sent!</string>
+    <string name="verify_dialog_title">Verify Email</string>
+    <string name="verify_dialog_message">verification message was sent to your email. verify and click continue</string>
+    <string name="verified">Continue</string>
+    <string name="not_verified">Email was not verified</string>
+    <string name="resend_email">Resend Email</string>
+    <string name="verify_email_sent">Verify message was sent to your email!</string>
 
     <!-- Register License Activity -->
     <string name="register_license_title">BARDOG</string>
-    <string name="verified">Login</string>
-    <string name="resend_email">Login</string>
-    <string name="verify_email_sent">Reset password email was sent!</string>
 
     <!-- Register Activity -->
     <string name="register_title">Register</string>

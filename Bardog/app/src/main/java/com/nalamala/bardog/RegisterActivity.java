@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -32,6 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     LocaleHelper localeHelper;
 
+    boolean verifyProcess;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,8 @@ public class RegisterActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.password_edit_text);
 
         mAuth = FirebaseAuth.getInstance();
+
+        verifyProcess = false;
 
         loginLinkButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
 
+                                    // verify user email
                                     final FirebaseUser user = mAuth.getCurrentUser();
                                     user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -104,11 +110,17 @@ public class RegisterActivity extends AppCompatActivity {
                                                 Toast.makeText(RegisterActivity.this, R.string.verify_email_sent, Toast.LENGTH_SHORT).show();
 
                                                 AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                                                final AlertDialog verifyEmailDialog = builder.setMessage(R.string.verify_email)
+                                                final AlertDialog verifyEmailDialog = builder
+                                                        .setTitle(R.string.verify_dialog_title)
+                                                        .setMessage(R.string.verify_dialog_message)
+                                                        .setCancelable(false)
                                                         .setPositiveButton(R.string.verified, new DialogInterface.OnClickListener() {
                                                             @Override
                                                             public void onClick(DialogInterface dialog, int which) {
+
                                                                 if (user.isEmailVerified()) {
+
+                                                                    verifyProcess = false;
 
                                                                     Toast.makeText(RegisterActivity.this, R.string.user_created_successfully, Toast.LENGTH_SHORT).show();
 
@@ -118,12 +130,20 @@ public class RegisterActivity extends AppCompatActivity {
                                                                     finish();
 
                                                                 }
+                                                                else {
+                                                                    Toast.makeText(RegisterActivity.this, R.string.not_verified, Toast.LENGTH_SHORT).show();
+                                                                    user.delete();
+                                                                    FirebaseAuth.getInstance().signOut();
+                                                                    verifyProcess = false;
+                                                                }
                                                             }
                                                         })
-                                                        .setNegativeButton(R.string.resend_email, new DialogInterface.OnClickListener() {
+                                                        .setNegativeButton(R.string.cancel_button, new DialogInterface.OnClickListener() {
                                                             @Override
                                                             public void onClick(DialogInterface dialog, int which) {
-                                                                user.sendEmailVerification();
+                                                                user.delete();
+                                                                FirebaseAuth.getInstance().signOut();
+                                                                verifyProcess = false;
                                                             }
                                                         }).create();
 
@@ -136,6 +156,8 @@ public class RegisterActivity extends AppCompatActivity {
                                                     }
                                                 });
 
+                                                verifyProcess = true;
+                                                bar.closeDialog();
                                                 verifyEmailDialog.show();
 
                                             }
@@ -147,7 +169,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     });
 
                                 } else {
-                                    // If sign in fails, display a message to the user.
+                                    // If sign up fails, display a message to the user.
                                     bar.closeDialog();
                                     Toast.makeText(RegisterActivity.this, R.string.user_exists, Toast.LENGTH_SHORT).show();
                                     Log.i("FIREBASE AUTH ERROR", "createUserWithEmail:failure", task.getException());
@@ -156,5 +178,17 @@ public class RegisterActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (verifyProcess) {
+            final FirebaseUser user = mAuth.getCurrentUser();
+            user.delete();
+
+            FirebaseAuth.getInstance().signOut();
+        }
     }
 }
