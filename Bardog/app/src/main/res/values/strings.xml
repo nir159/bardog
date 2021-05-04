@@ -73,9 +73,28 @@
     <string name="not_registered_yet">not registered yet?</string>
     <string name="or">or</string>
     <string name="register_link_button">register</string>
+    <string name="forgot_password_button">forgot password?</string>
     <string name="wrong_info">Wrong email or password</string>
     <string name="login_error">Error. Please try another method</string>
     <string name="google_already_used">A google account with the same email already exists</string>
+
+    <!-- Reset Password Dialog -->
+    <string name="reset_password_title">Login</string>
+    <string name="reset_password_message">Login</string>
+    <string name="send_message">Login</string>
+    <string name="email_sent">Reset password email was sent!</string>
+
+    <!-- Verify Email Dialog -->
+    <string name="verify_email">Login</string>
+    <string name="verified">Login</string>
+    <string name="resend_email">Login</string>
+    <string name="verify_email_sent">Reset password email was sent!</string>
+
+    <!-- Register License Activity -->
+    <string name="register_license_title">BARDOG</string>
+    <string name="verified">Login</string>
+    <string name="resend_email">Login</string>
+    <string name="verify_email_sent">Reset password email was sent!</string>
 
     <!-- Register Activity -->
     <string name="register_title">Register</string>

@@ -1,8 +1,10 @@
 package com.nalamala.bardog;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     Button googleLoginButton;
     LoginButton facebookLoginButton;
     Button registerButton;
+    Button forgotPasswordButton;
     Button loginButton;
     EditText emailEditText;
     EditText passwordEditText;
@@ -88,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         googleLoginButton = findViewById(R.id.google_login_button);
         facebookLoginButton = findViewById(R.id.facebook_login_button);
         registerButton = findViewById(R.id.resgister_link_button);
+        forgotPasswordButton = findViewById(R.id.forgot_password_button);
         loginButton = findViewById(R.id.login_button);
         emailEditText = findViewById(R.id.email_edit_text);
         passwordEditText = findViewById(R.id.password_edit_text);
@@ -138,6 +142,43 @@ public class LoginActivity extends AppCompatActivity {
                 Intent register = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(register);
                 finish();
+            }
+        });
+
+        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText email = new EditText(v.getContext());
+                AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
+                passwordResetDialog.setTitle(R.string.reset_password_title);
+                passwordResetDialog.setMessage(R.string.reset_password_message);
+                passwordResetDialog.setView(email);
+
+                passwordResetDialog.setPositiveButton(R.string.send_message, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String resetEmail = email.getText().toString();
+
+                        mAuth.sendPasswordResetEmail(resetEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(LoginActivity.this, R.string.email_sent, Toast.LENGTH_SHORT).show();
+                                }
+                                else {
+                                    Toast.makeText(LoginActivity.this, R.string.invalid_email, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                }).setNegativeButton(R.string.cancel_button, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                passwordResetDialog.create().show();
             }
         });
 

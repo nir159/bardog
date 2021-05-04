@@ -86,6 +86,7 @@
     <string name="not_registered_yet">עדיין לא רשום לbardog?</string>
     <string name="or">או</string>
     <string name="register_link_button">הרשם</string>
+    <string name="forgot_password_button">שכחתי סיסמא</string>
     <string name="wrong_info">סיסמא או אימייל שגויים</string>
     <string name="login_error">אירעה שגיאה נסה דרך אחרת</string>
     <string name="google_already_used">קיים כבר חשבון גוגל עם אותה הכתובת</string>

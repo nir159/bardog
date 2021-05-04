@@ -1,9 +1,12 @@
 package com.nalamala.bardog;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,8 +26,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     Button loginLinkButton;
     Button registerButton;
-    EditText nameEditText;
-    EditText phoneEditText;
     EditText emailEditText;
     EditText passwordEditText;
 
@@ -45,8 +46,6 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.register_button);
         emailEditText = findViewById(R.id.email_edit_text);
         passwordEditText = findViewById(R.id.password_edit_text);
-        nameEditText = findViewById(R.id.name_edit_text);
-        phoneEditText = findViewById(R.id.phone_edit_text);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -62,12 +61,10 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String name = nameEditText.getText().toString();
-                final String phone = phoneEditText.getText().toString();
                 final String email = emailEditText.getText().toString();
                 final String password = passwordEditText.getText().toString();
 
-                if (name.matches("") || phone.matches("") || email.matches("") || password.matches("")) {
+                if (email.matches("") || password.matches("")) {
                     Toast.makeText(RegisterActivity.this, R.string.fill_all, Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -75,12 +72,12 @@ public class RegisterActivity extends AppCompatActivity {
                 // verify email
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-                if (!email.matches(emailPattern))
-                {
+                if (!email.matches(emailPattern)) {
                     Toast.makeText(RegisterActivity.this, R.string.invalid_email, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                // verify password
                 if (password.length() < 8)
                 {
                     Toast.makeText(RegisterActivity.this, R.string.invalid_password, Toast.LENGTH_SHORT).show();
@@ -98,23 +95,56 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
 
-                                    // user logged
-                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    final FirebaseUser user = mAuth.getCurrentUser();
+                                    user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
 
-                                    String currentUserUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                                Toast.makeText(RegisterActivity.this, R.string.verify_email_sent, Toast.LENGTH_SHORT).show();
 
-                                    DatabaseReference currUser = FirebaseDatabase.getInstance().getReference().child(CommonFunctions.DATABASE_USERS_REF)
-                                            .child(currentUserUid);
+                                                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                                                final AlertDialog verifyEmailDialog = builder.setMessage(R.string.verify_email)
+                                                        .setPositiveButton(R.string.verified, new DialogInterface.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(DialogInterface dialog, int which) {
+                                                                if (user.isEmailVerified()) {
 
-                                    currUser.child(CommonFunctions.USER_FULL_NAME).setValue(name);
-                                    currUser.child(CommonFunctions.USER_PHONE_NUMBER).setValue(phone);
+                                                                    Toast.makeText(RegisterActivity.this, R.string.user_created_successfully, Toast.LENGTH_SHORT).show();
 
-                                    Toast.makeText(RegisterActivity.this, R.string.user_created_successfully, Toast.LENGTH_SHORT).show();
+                                                                    Intent tutorial = new Intent(RegisterActivity.this, RegisterLicense.class);
+                                                                    startActivity(tutorial);
 
-                                    Intent tutorial = new Intent(RegisterActivity.this, TutorialActivity.class);
-                                    startActivity(tutorial);
+                                                                    finish();
 
-                                    finish();
+                                                                }
+                                                            }
+                                                        })
+                                                        .setNegativeButton(R.string.resend_email, new DialogInterface.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(DialogInterface dialog, int which) {
+                                                                user.sendEmailVerification();
+                                                            }
+                                                        }).create();
+
+                                                verifyEmailDialog.setOnShowListener( new DialogInterface.OnShowListener() {
+                                                    @Override
+                                                    public void onShow(DialogInterface arg0) {
+                                                        // Change the buttons color
+                                                        verifyEmailDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED);
+                                                        verifyEmailDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.RED);
+                                                    }
+                                                });
+
+                                                verifyEmailDialog.show();
+
+                                            }
+                                            else {
+                                                Toast.makeText(RegisterActivity.this, R.string.invalid_email, Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
+                                        }
+                                    });
 
                                 } else {
                                     // If sign in fails, display a message to the user.
