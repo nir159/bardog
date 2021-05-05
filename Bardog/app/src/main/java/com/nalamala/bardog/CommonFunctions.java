@@ -46,6 +46,8 @@ public class CommonFunctions {
     // Register License Activity
     public static final String LICENSE_PROCESS = "license";
 
+    // See Dog Activity
+    public static final String DOG_EXTRA = "extra_dog_preview";
 
     // Generates a barcode
     public static Bitmap getBarcode(Context mContext, String dogID) {

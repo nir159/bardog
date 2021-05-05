@@ -130,6 +130,9 @@
     <!-- Dog List Item Class -->
     <string name="generate_barcode_button">Barcode</string>
     <string name="remove_dog_button">X</string>
+    <string name="purchase_barcode">Purchase</string>
+    <string name="preview_dog">Preview</string>
+    <string name="edit_dog">Edit</string>
 
     <!-- Splash Activity -->
     <string name="no_internet_connection">Please connect to the internet and retry</string>

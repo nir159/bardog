@@ -142,6 +142,9 @@
     <!-- Dog List Item Class -->
     <string name="generate_barcode_button">ברקוד</string>
     <string name="remove_dog_button">X</string>
+    <string name="purchase_barcode">קנה תליון</string>
+    <string name="preview_dog">תצוגה מקדימה</string>
+    <string name="edit_dog">ערוך</string>
 
     <!-- Splash Activity -->
     <string name="no_internet_connection">אין אינטרנט. התחבר לאינטרנט ונסה שוב</string>

@@ -3,6 +3,7 @@ package com.nalamala.bardog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +31,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DogsListAdapter extends ArrayAdapter<Dog> implements View.OnClickListener, Filterable {
     private ArrayList<Dog> dogs;
@@ -40,9 +50,12 @@ public class DogsListAdapter extends ArrayAdapter<Dog> implements View.OnClickLi
 
     // View lookup cache
     private static class ViewHolder {
+        CircleImageView profileImage;
         TextView dogName;
-        Button barcode;
-        Button delete;
+        Button previewButton;
+        Button barcodeButton;
+        Button purchaseButton;
+        Button deleteButton;
     }
 
     @Override
@@ -64,9 +77,12 @@ public class DogsListAdapter extends ArrayAdapter<Dog> implements View.OnClickLi
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.dog_list_item, parent, false);
+            viewHolder.profileImage = convertView.findViewById(R.id.dog_image);
             viewHolder.dogName = convertView.findViewById(R.id.dog_name_text);
-            viewHolder.barcode = convertView.findViewById(R.id.barcode_button);
-            viewHolder.delete = convertView.findViewById(R.id.delete_button);
+            viewHolder.previewButton = convertView.findViewById(R.id.preview_button);
+            viewHolder.barcodeButton = convertView.findViewById(R.id.barcode_button);
+            viewHolder.purchaseButton = convertView.findViewById(R.id.purchase_button);
+            viewHolder.deleteButton = convertView.findViewById(R.id.delete_button);
 
             result = convertView;
 
@@ -76,9 +92,22 @@ public class DogsListAdapter extends ArrayAdapter<Dog> implements View.OnClickLi
             result = convertView;
         }
 
+        Glide.with(getContext()).load(dog.profileImage).into(viewHolder.profileImage);
+
         viewHolder.dogName.setText(dog.getDogName());
 
-        viewHolder.barcode.setOnClickListener(new View.OnClickListener() {
+        viewHolder.previewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent preview = new Intent(getContext(), SeeDogActivity.class);
+                preview.putExtra(CommonFunctions.DOG_EXTRA, dog.getID());
+                getContext().startActivity(preview);
+            }
+        });
+        //purchase
+
+
+        viewHolder.barcodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
 
@@ -94,7 +123,7 @@ public class DogsListAdapter extends ArrayAdapter<Dog> implements View.OnClickLi
             }
         });
 
-        viewHolder.delete.setOnClickListener(new View.OnClickListener() {
+        viewHolder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
