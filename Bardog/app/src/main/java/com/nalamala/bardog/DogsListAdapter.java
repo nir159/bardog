@@ -104,8 +104,13 @@ public class DogsListAdapter extends ArrayAdapter<Dog> implements View.OnClickLi
                 getContext().startActivity(preview);
             }
         });
-        //purchase
 
+        viewHolder.purchaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) mContext).selectStore();
+            }
+        });
 
         viewHolder.barcodeButton.setOnClickListener(new View.OnClickListener() {
             @Override

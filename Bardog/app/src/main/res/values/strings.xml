@@ -153,5 +153,6 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_share">Share</string>
+    <string name="menu_store">Store</string>
 
 </resources>

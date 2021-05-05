@@ -103,6 +103,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (item.getItemId() == R.id.nav_faq) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FaqFragment()).commit();
         }
+        else if (item.getItemId() == R.id.nav_store) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new StoreFragment()).commit();
+        }
         else if (item.getItemId() == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
         }
@@ -137,6 +140,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void selectCreateDog() {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateDogFragment()).commit();
         navigationView.setCheckedItem(R.id.nav_create_dog);
+    }
+
+    public void selectStore() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new StoreFragment()).commit();
+        navigationView.setCheckedItem(R.id.nav_store);
     }
 
     public void selectHomeFragment() {
