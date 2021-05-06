@@ -31,241 +31,255 @@
             app:civ_border_width="3dp"
             app:civ_border_color="@color/colorPrimaryLight"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeWidth="5dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            android:id="@+id/dogNameInputLayout"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="@string/dog_name_input">
+            android:layout_height="340dp"
+            android:isScrollContainer="true">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/dog_name"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/custom_dog_icon"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"/>
+                android:layout_height="wrap_content">
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeWidth="5dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            android:id="@+id/dogTypeInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="@string/dog_type_input">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/dog_type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/custom_dog_icon"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:ems="10"
-                android:inputType="text"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeWidth="5dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            android:id="@+id/birthDateInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="@string/dog_birth_date_input">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/birth_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/custom_dog_icon"
-                android:drawablePadding="10dp"
-                android:maxLength="4"
-                android:padding="10dp"
-                android:ems="10"
-                android:inputType="number"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/isVaccinatedTextview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/colorPrimaryLight"
-                android:text="@string/vaccinated_input"
-                />
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:id="@+id/is_immunized"
-                android:layout_alignParentEnd="true"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes"
-                    android:button="@color/zxing_transparent"
-                    android:background="@drawable/radio_background_selector"
-                    android:textColor="@drawable/radio_text_selector"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:textStyle="bold"
-                    android:elevation="4dp"/>
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no"
-                    android:button="@color/zxing_transparent"
-                    android:background="@drawable/radio_background_selector"
-                    android:textColor="@drawable/radio_text_selector"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:layout_marginEnd="20dp"
-                    android:elevation="4dp"
-                    android:textStyle="bold"/>
-
-            </RadioGroup>
-
-
-        </RelativeLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeWidth="5dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            android:id="@+id/commentsInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="@string/extra_comments_input">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/comments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:ems="10"
-                android:inputType="text"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/contactInfoTextview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textColor="@color/colorPrimaryLight"
-            android:layout_marginTop="15dp"
-            android:text="@string/owner_info"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxStrokeWidth="5dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                android:id="@+id/nameInputLayout"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:hint="@string/register_name_input_hint">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/owner_name"
+                    <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeWidth="5dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    android:id="@+id/dogNameInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/custom_name_icon"
-                    android:drawablePadding="10dp"
-                    android:padding="10dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"/>
+                    android:layout_marginTop="15dp"
+                    android:hint="@string/dog_name_input">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dog_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/custom_dog_icon"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxStrokeWidth="5dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                android:id="@+id/phoneInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                android:hint="@string/register_phone_input_hint">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/owner_phone"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeWidth="5dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    android:id="@+id/dogTypeInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/custom_phone_icon"
-                    android:drawablePadding="10dp"
-                    android:padding="10dp"
-                    android:ems="10"
-                    android:inputType="phone"/>
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/dog_type_input">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dog_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/custom_dog_icon"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:ems="10"
+                        android:inputType="text"/>
 
-        </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeWidth="5dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            android:id="@+id/addressInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="@string/extra_address_input">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeWidth="5dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    android:id="@+id/birthDateInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/dog_birth_date_input">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/custom_home_icon"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:ems="10"
-                android:inputType="text"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/birth_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/custom_dog_icon"
+                        android:drawablePadding="10dp"
+                        android:maxLength="4"
+                        android:padding="10dp"
+                        android:ems="10"
+                        android:inputType="number"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/isVaccinatedTextview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:text="@string/vaccinated_input"
+                        />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/is_immunized"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yes"
+                            android:button="@color/zxing_transparent"
+                            android:background="@drawable/radio_background_selector"
+                            android:textColor="@drawable/radio_text_selector"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/no"
+                            android:button="@color/zxing_transparent"
+                            android:background="@drawable/radio_background_selector"
+                            android:textColor="@drawable/radio_text_selector"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:elevation="4dp"
+                            android:textStyle="bold"/>
+
+                    </RadioGroup>
+
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeWidth="5dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    android:id="@+id/commentsInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/extra_comments_input">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:ems="10"
+                        android:inputType="text"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/contactInfoTextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/owner_info"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:boxStrokeWidth="5dp"
+                        app:boxCornerRadiusBottomEnd="10dp"
+                        app:boxCornerRadiusTopStart="10dp"
+                        android:id="@+id/nameInputLayout"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:hint="@string/register_name_input_hint">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/owner_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/custom_name_icon"
+                            android:drawablePadding="10dp"
+                            android:padding="10dp"
+                            android:ems="10"
+                            android:inputType="textPersonName"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:boxStrokeWidth="5dp"
+                        app:boxCornerRadiusBottomEnd="10dp"
+                        app:boxCornerRadiusTopStart="10dp"
+                        android:id="@+id/phoneInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:hint="@string/register_phone_input_hint">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/owner_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/custom_phone_icon"
+                            android:drawablePadding="10dp"
+                            android:padding="10dp"
+                            android:ems="10"
+                            android:inputType="phone"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeWidth="5dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    android:id="@+id/addressInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/extra_address_input">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/custom_home_icon"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:ems="10"
+                        android:inputType="text"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -291,8 +305,6 @@
                 android:textColor="@color/colorPrimaryLight"
                 android:background="@drawable/button_primary_gradient"
                 android:text="@string/save_button" />
-
-
 
         </LinearLayout>
 

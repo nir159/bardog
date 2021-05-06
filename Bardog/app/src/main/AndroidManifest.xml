@@ -14,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterLicense"></activity>
-        <activity android:name=".MainActivity" /> <!-- first screen -->
-        <activity android:name=".SplashActivity">
+        <activity android:name=".RegisterLicense"/>
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan"/>  <!-- input is covered by keyboard using softInputMode to solve it -->
+        <activity android:name=".SplashActivity">  <!-- first screen -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -42,7 +42,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="30dp" />
 
         <com.shobhitpuri.custombuttons.GoogleSignInButton
             android:id="@+id/google_login_button"
@@ -57,7 +57,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp">
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/tvText"
@@ -99,7 +99,7 @@
             android:id="@+id/emailInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/login_email_input_hint">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -122,7 +122,7 @@
             android:id="@+id/passwordInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:hint="@string/login_password_input_hint">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -141,7 +141,7 @@
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:textColor="@color/colorPrimaryLight"
             android:background="@drawable/button_primary_gradient"
             android:text="@string/login_button"

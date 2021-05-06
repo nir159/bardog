@@ -29,7 +29,7 @@
 
     <!-- Settings Fragment -->
     <string name="settings_title">הגדרות</string>
-    <string name="change_language_button">שפה</string>
+    <string name="change_language_button">שנה שפה</string>
     <string name="edit_user_button">ערוך</string>
     <string name="save_info_button">שמור</string>
     <string name="delete_user_button">מחק משתמש</string>

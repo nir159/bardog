@@ -31,7 +31,7 @@
 
     <!-- Settings Fragment -->
     <string name="settings_title">Settings</string>
-    <string name="change_language_button">Language</string>
+    <string name="change_language_button">Change Language</string>
     <string name="edit_user_button">Edit</string>
     <string name="save_info_button">Save</string>
     <string name="delete_user_button">Delete Account</string>

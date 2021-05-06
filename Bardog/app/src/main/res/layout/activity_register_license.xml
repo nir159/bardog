@@ -52,7 +52,7 @@
             android:id="@+id/nameInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/register_name_input_hint">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -75,7 +75,7 @@
             android:id="@+id/phoneInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/register_phone_input_hint">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -98,7 +98,7 @@
             android:id="@+id/addressInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/register_address_input_hint">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal" >
 
             <CheckBox
@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryLight"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_primary_gradient"
             android:text="@string/register_button"
             />
