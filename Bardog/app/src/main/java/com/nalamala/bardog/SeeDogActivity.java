@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -32,9 +33,11 @@ public class SeeDogActivity extends AppCompatActivity {
     TextView dogName;
     TextView isImmuned;
     TextView dogType;
-    TextView ownerInfo;
     TextView comments;
     TextView birthYear;
+    TextView ownerName;
+    TextView ownerPhone;
+    TextView ownerAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +53,11 @@ public class SeeDogActivity extends AppCompatActivity {
         dogName = findViewById(R.id.dog_name);
         isImmuned = findViewById(R.id.is_immunized);
         dogType = findViewById(R.id.dog_type);
-        ownerInfo = findViewById(R.id.owner_info);
         comments = findViewById(R.id.comments);
         birthYear = findViewById(R.id.birth_date);
+        ownerName = findViewById(R.id.owner_name);
+        ownerPhone = findViewById(R.id.owner_phone);
+        ownerAddress = findViewById(R.id.owner_address);
 
         String uri = getIntent().getDataString();
         String dogID;
@@ -85,23 +90,66 @@ public class SeeDogActivity extends AppCompatActivity {
 
                             @Override
                             public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                // set dog info
                                 dogName.setText(snapshot.child(CommonFunctions.DOG_NAME).getValue().toString());
-                                if (snapshot.child(CommonFunctions.IS_IMMUNIZED).getValue().toString().equals("yes"))
-                                    isImmuned.setText(R.string.dog_immuned);
-                                else
-                                    isImmuned.setText(R.string.dog_not_immuned);
 
-                                String type = getString(R.string.type) + snapshot.child(CommonFunctions.DOG_TYPE).getValue().toString();
+                                String type = getString(R.string.type) + " " + snapshot.child(CommonFunctions.DOG_TYPE).getValue().toString();
                                 dogType.setText(type);
-
-                                String ownerInfoString = snapshot.child(CommonFunctions.OWNER_NAME).getValue().toString() + " - " + snapshot.child(CommonFunctions.OWNER_PHONE).getValue().toString();
-                                ownerInfo.setText(ownerInfoString);
-                                comments.setText(snapshot.child(CommonFunctions.COMMENTS).getValue().toString());
 
                                 int year = Calendar.getInstance().get(Calendar.YEAR);
                                 int dogsBirthYear = Integer.parseInt(snapshot.child(CommonFunctions.BIRTH_DATE).getValue().toString());
-                                String ageText = getString(R.string.dog_age) + String.valueOf(year - dogsBirthYear);
+                                String ageText = getString(R.string.dog_age) + " " + String.valueOf(year - dogsBirthYear);
                                 birthYear.setText(ageText);
+
+                                if (snapshot.child(CommonFunctions.IS_IMMUNIZED).getValue().toString().equals("yes"))
+                                    isImmuned.setText(R.string.dog_immuned);
+                                else {
+                                    isImmuned.setTextSize(20f);
+                                    isImmuned.setText(R.string.dog_not_immuned);
+                                }
+
+                                String extraComments = snapshot.child(CommonFunctions.COMMENTS).getValue().toString();
+                                if (!extraComments.equals("")) {
+                                    String commentsText = getString(R.string.additional_comments) + " " +extraComments;
+                                    comments.setText(commentsText);
+                                }
+                                else {
+                                    comments.setVisibility(View.GONE);
+                                }
+
+                                // set owner contact information
+                                String ownerNameText = snapshot.child(CommonFunctions.OWNER_NAME).getValue().toString();
+                                String ownerPhoneText = snapshot.child(CommonFunctions.OWNER_PHONE).getValue().toString();
+                                String ownerAddressText = snapshot.child(CommonFunctions.OWNER_ADDRESS).getValue().toString();
+                                String ownerInfoString;
+                                boolean noContactInfo = true;
+
+                                ownerInfoString = getString(R.string.owner_name) + " " + ownerNameText;
+                                ownerName.setText(ownerInfoString);
+
+                                if (!ownerPhoneText.equals("")) {
+                                    ownerInfoString = getString(R.string.owner_phone) + " " + ownerPhoneText;
+                                    ownerPhone.setText(ownerInfoString);
+                                    noContactInfo = false;
+                                }
+                                else
+                                    ownerPhone.setVisibility(View.GONE);
+
+                                if (!ownerAddressText.equals("")) {
+                                    ownerInfoString = getString(R.string.owner_address) + " " + ownerAddressText;
+                                    ownerAddress.setText(ownerInfoString);
+                                    noContactInfo = false;
+                                }
+                                else
+                                    ownerAddress.setVisibility(View.GONE);
+
+                                if (noContactInfo) {
+                                    // user didn't provide any contact information therefore the email will show
+                                    String emailContact = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                                    ownerInfoString = getString(R.string.owner_email) + " " + emailContact;
+                                    ownerName.setText(ownerInfoString);
+                                }
+
                                 return false;
                             }
                         })

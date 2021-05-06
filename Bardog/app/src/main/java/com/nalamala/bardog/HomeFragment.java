@@ -70,6 +70,7 @@ public class HomeFragment extends Fragment {
                             ds.child(CommonFunctions.DOG_TYPE).getValue(String.class),
                             ds.child(CommonFunctions.OWNER_NAME).getValue(String.class),
                             ds.child(CommonFunctions.OWNER_PHONE).getValue(String.class),
+                            ds.child(CommonFunctions.OWNER_ADDRESS).getValue(String.class),
                             ds.child(CommonFunctions.COMMENTS).getValue(String.class),
                             ds.child(CommonFunctions.BIRTH_DATE).getValue(String.class),
                             ds.child(CommonFunctions.PROFILE_IMAGE).getValue(String.class),

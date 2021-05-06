@@ -7,20 +7,22 @@ public class Dog implements Serializable {
     String ID;
     String dogName;
     String isImmunized;
-    String desc;
+    String dogType;
     String ownerName;
+    String ownerPhone;
+    String ownerAddress;
     String comments;
     String birthDate;
-    String ownerPhone;
     String profileImage;
 
 
-    public Dog(String dogName, String isImmunized, String desc, String ownerName, String ownerPhone, String comments, String birthDate, String profileImage, String ID) {
+    public Dog(String dogName, String isImmunized, String dogType, String ownerName, String ownerPhone, String ownerAddress, String comments, String birthDate, String profileImage, String ID) {
         this.dogName = dogName;
         this.isImmunized = isImmunized;
-        this.desc = desc;
+        this.dogType = dogType;
         this.ownerName = ownerName;
         this.ownerPhone = ownerPhone;
+        this.ownerAddress = ownerAddress;
         this.comments = comments;
         this.birthDate = birthDate;
         this.profileImage = profileImage;
@@ -39,8 +41,8 @@ public class Dog implements Serializable {
         return isImmunized;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getdogType() {
+        return dogType;
     }
 
     public String getOwnerName() {
@@ -57,6 +59,10 @@ public class Dog implements Serializable {
 
     public String getOwnerPhone() {
         return ownerPhone;
+    }
+
+    public String getOwnerAddress() {
+        return ownerAddress;
     }
 
     public String getProfileImage() {

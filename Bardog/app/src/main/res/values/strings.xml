@@ -13,7 +13,8 @@
     <string name="dog_type_input">Dog type</string>
     <string name="dog_birth_date_input">Birth year</string>
     <string name="owner_info">Contact Information:</string>
-    <string name="extra_comments_input">Comments (Not Required)</string>
+    <string name="extra_comments_input">Comments (Optional)</string>
+    <string name="extra_address_input">Address (Optional)</string>
     <string name="cancel_button">Cancel</string>
     <string name="save_button">Save</string>
     <string name="change_image">Add image to continue</string>
@@ -107,7 +108,8 @@
     <string name="register_email_input_hint">Email</string>
     <string name="register_password_input_hint">Password</string>
     <string name="register_name_input_hint">Full Name</string>
-    <string name="register_phone_input_hint">Phone Number</string>
+    <string name="register_phone_input_hint">Phone Number (optional)</string>
+    <string name="register_address_input_hint">Address (optional)</string>
     <string name="register_button">Register</string>
     <string name="already_registered">already registered?</string>
     <string name="login_link_button">login</string>
@@ -129,6 +131,11 @@
     <string name="dog_not_immuned">Dog is not immunized</string>
     <string name="dog_age">Age: </string>
     <string name="type">Type: </string>
+    <string name="additional_comments">Additional Comments: </string>
+    <string name="owner_name">Name: </string>
+    <string name="owner_phone">Phone Number: </string>
+    <string name="owner_address">Address: </string>
+    <string name="owner_email">Email Address: </string>
 
     <!-- Dog List Item Class -->
     <string name="generate_barcode_button">Barcode</string>

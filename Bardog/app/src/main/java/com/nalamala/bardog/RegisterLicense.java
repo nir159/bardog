@@ -21,10 +21,10 @@ public class RegisterLicense extends AppCompatActivity {
 
     EditText nameEditText;
     EditText phoneEditText;
+    EditText addressEditText;
     CheckBox agreeToTerms;
     Button registerButton;
     Button termsButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class RegisterLicense extends AppCompatActivity {
 
         nameEditText = findViewById(R.id.name_edit_text);
         phoneEditText = findViewById(R.id.phone_edit_text);
+        addressEditText = findViewById(R.id.address_edit_text);
         agreeToTerms = findViewById(R.id.agree_to_terms);
         termsButton = findViewById(R.id.terms_button);
         registerButton = findViewById(R.id.register_button);
@@ -50,8 +51,9 @@ public class RegisterLicense extends AppCompatActivity {
             public void onClick(View v) {
                 final String name = nameEditText.getText().toString();
                 final String phone = phoneEditText.getText().toString();
+                final String address = addressEditText.getText().toString();
 
-                if (name.matches("") || phone.matches("")) {
+                if (name.matches("")) {
                     Toast.makeText(RegisterLicense.this, R.string.fill_all, Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -69,6 +71,7 @@ public class RegisterLicense extends AppCompatActivity {
 
                 currUser.child(CommonFunctions.USER_FULL_NAME).setValue(name);
                 currUser.child(CommonFunctions.USER_PHONE_NUMBER).setValue(phone);
+                currUser.child(CommonFunctions.USER_ADDRESS).setValue(address);
 
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.remove(CommonFunctions.LICENSE_PROCESS);

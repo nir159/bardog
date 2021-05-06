@@ -43,8 +43,9 @@ public class SettingsFragment extends Fragment {
     Button deleteAccButton;
     Button editAccDetails;
     LocaleHelper localeHelper;
-    EditText phoneEditText;
     EditText nameEditText;
+    EditText phoneEditText;
+    EditText addressEditText;
     boolean isEditing;
 
     @Nullable
@@ -65,6 +66,7 @@ public class SettingsFragment extends Fragment {
         deleteAccButton = getView().findViewById(R.id.delete_user);
         editAccDetails = getView().findViewById(R.id.edit_user);
         phoneEditText = getView().findViewById(R.id.phone_edit_text);
+        addressEditText = getView().findViewById(R.id.address_edit_text);
         nameEditText = getView().findViewById(R.id.name_edit_text);
 
         final String currentUserUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -77,9 +79,11 @@ public class SettingsFragment extends Fragment {
               public void onDataChange(@NonNull DataSnapshot snapshot) {
                   String userName = snapshot.child(CommonFunctions.USER_FULL_NAME).getValue(String.class);
                   String userPhone = snapshot.child(CommonFunctions.USER_PHONE_NUMBER).getValue(String.class);
+                  String userAddress = snapshot.child(CommonFunctions.USER_ADDRESS).getValue(String.class);
 
                   nameEditText.setText(userName);
                   phoneEditText.setText(userPhone);
+                  addressEditText.setText(userAddress);
               }
 
               @Override
@@ -125,20 +129,23 @@ public class SettingsFragment extends Fragment {
                 if (!isEditing) {
                     editAccDetails.setText(R.string.save_info_button);
                     phoneEditText.setEnabled(true);
+                    addressEditText.setEnabled(true);
                     nameEditText.setEnabled(true);
                     isEditing = true;
                 }
                 else {
                     final String phone = phoneEditText.getText().toString();
                     final String name = nameEditText.getText().toString();
+                    final String address = addressEditText.getText().toString();
 
-                    if (name.matches("") || phone.matches("")) {
+                    if (name.matches("")) {
                         Toast.makeText(getContext(), R.string.fill_all, Toast.LENGTH_SHORT).show();
                         return;
                     }
 
                     phoneEditText.setEnabled(false);
                     nameEditText.setEnabled(false);
+                    addressEditText.setEnabled(false);
 
                     String currentUserUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -147,6 +154,7 @@ public class SettingsFragment extends Fragment {
 
                     currUser.child(CommonFunctions.USER_FULL_NAME).setValue(name);
                     currUser.child(CommonFunctions.USER_PHONE_NUMBER).setValue(phone);
+                    currUser.child(CommonFunctions.USER_ADDRESS).setValue(address);
 
                     editAccDetails.setText(R.string.edit_user_button);
                     isEditing = false;

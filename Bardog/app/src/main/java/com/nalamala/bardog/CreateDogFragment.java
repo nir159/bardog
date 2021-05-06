@@ -53,6 +53,7 @@ public class CreateDogFragment extends Fragment {
     EditText dogTypeInput;
     EditText ownerNameInput;
     EditText ownerPhoneInput;
+    EditText ownerAddress;
     EditText commentsInput;
     EditText birthYearInput;
     Button saveButton;
@@ -82,6 +83,7 @@ public class CreateDogFragment extends Fragment {
         birthYearInput = getView().findViewById(R.id.birth_date);
         isImmunizedInput = getView().findViewById(R.id.is_immunized);
         commentsInput = getView().findViewById(R.id.comments);
+        ownerAddress = getView().findViewById(R.id.address);
         ownerNameInput = getView().findViewById(R.id.owner_name);
         ownerPhoneInput = getView().findViewById(R.id.owner_phone);
 
@@ -108,10 +110,11 @@ public class CreateDogFragment extends Fragment {
                 isImmunizedInput.check(radioButton.getId());
             }
 
-            dogTypeInput.setText(updateDogInfo.getDesc());
+            dogTypeInput.setText(updateDogInfo.getdogType());
             ownerNameInput.setText(updateDogInfo.getOwnerName());
             ownerPhoneInput.setText(updateDogInfo.getOwnerPhone());
             commentsInput.setText(updateDogInfo.getComments());
+            ownerAddress.setText(updateDogInfo.getOwnerAddress());
             birthYearInput.setText(updateDogInfo.getBirthDate());
 
             isUpdating = true;
@@ -124,9 +127,11 @@ public class CreateDogFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String userName = snapshot.child(CommonFunctions.USER_FULL_NAME).getValue(String.class);
                     String userPhone = snapshot.child(CommonFunctions.USER_PHONE_NUMBER).getValue(String.class);
+                    String userAddress = snapshot.child(CommonFunctions.USER_ADDRESS).getValue(String.class);
 
                     ownerNameInput.setText(userName);
                     ownerPhoneInput.setText(userPhone);
+                    ownerAddress.setText(userAddress);
                 }
 
                 @Override
@@ -172,9 +177,10 @@ public class CreateDogFragment extends Fragment {
                 final String ownerName = ownerNameInput.getText().toString();
                 final String ownerPhone = ownerPhoneInput.getText().toString();
                 final String comments = commentsInput.getText().toString();
+                final String address = ownerAddress.getText().toString();
                 final String birthYear = birthYearInput.getText().toString();
 
-                if (dogName.matches("") || isImmunizedChecked == -1 || dogType.matches("") || ownerName.matches("") || ownerPhone.matches("") || birthYear.matches("")) {
+                if (dogName.matches("") || isImmunizedChecked == -1 || dogType.matches("") || ownerName.matches("") || birthYear.matches("")) {
                     Toast.makeText(getActivity(), R.string.fill_all, Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -236,6 +242,7 @@ public class CreateDogFragment extends Fragment {
                                                     currUser.child(CommonFunctions.OWNER_NAME).setValue(ownerName);
                                                     currUser.child(CommonFunctions.OWNER_PHONE).setValue(ownerPhone);
                                                     currUser.child(CommonFunctions.COMMENTS).setValue(comments);
+                                                    currUser.child(CommonFunctions.OWNER_ADDRESS).setValue(address);
                                                     currUser.child(CommonFunctions.BIRTH_DATE).setValue(birthYear);
                                                     currUser.child(CommonFunctions.PROFILE_IMAGE).setValue(uri.toString());
                                                     currUser.child(CommonFunctions.DOG_ID).setValue(dogID);
@@ -270,6 +277,7 @@ public class CreateDogFragment extends Fragment {
                     currUser.child(CommonFunctions.OWNER_NAME).setValue(ownerName);
                     currUser.child(CommonFunctions.OWNER_PHONE).setValue(ownerPhone);
                     currUser.child(CommonFunctions.COMMENTS).setValue(comments);
+                    currUser.child(CommonFunctions.OWNER_ADDRESS).setValue(address);
                     currUser.child(CommonFunctions.BIRTH_DATE).setValue(birthYear);
 
                     Toast.makeText(getActivity(), R.string.updated_successfully, Toast.LENGTH_SHORT).show();

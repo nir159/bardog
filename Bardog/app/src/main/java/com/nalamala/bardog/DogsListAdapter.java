@@ -194,9 +194,10 @@ public class DogsListAdapter extends ArrayAdapter<Dog> implements View.OnClickLi
                         if (userID.startsWith(filterID.toString())) {
                             FilteredArrList.add(new Dog(dogs.get(i).getDogName(),
                                     dogs.get(i).getIsImmunized(),
-                                    dogs.get(i).getDesc(),
+                                    dogs.get(i).getdogType(),
                                     dogs.get(i).getOwnerName(),
                                     dogs.get(i).getOwnerPhone(),
+                                    dogs.get(i).getOwnerAddress(),
                                     dogs.get(i).getProfileImage(),
                                     dogs.get(i).getComments(),
                                     dogs.get(i).getBirthDate(),

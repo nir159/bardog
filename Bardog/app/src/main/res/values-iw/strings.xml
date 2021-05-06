@@ -12,6 +12,7 @@
     <string name="dog_birth_date_input">שנת לידה</string>
     <string name="owner_info">פרטים ליצירת קשר:</string>
     <string name="extra_comments_input">הערות נוספות (לא חובה)</string>
+    <string name="extra_address_input">כתובת (לא חובה)</string>
     <string name="cancel_button">ביטול</string>
     <string name="save_button">שמור</string>
     <string name="change_image">אנא בחר תמונה חדשה</string>
@@ -120,7 +121,8 @@
     <string name="register_email_input_hint">אימייל</string>
     <string name="register_password_input_hint">סיסמא</string>
     <string name="register_name_input_hint">שם מלא</string>
-    <string name="register_phone_input_hint">מספר טלפון</string>
+    <string name="register_phone_input_hint">מספר טלפון (לא חובה)</string>
+    <string name="register_address_input_hint">כתובת (לא חובה)</string>
     <string name="register_button">הרשם</string>
     <string name="already_registered">כבר רשום לbardog?</string>
     <string name="login_link_button">התחבר</string>
@@ -141,6 +143,11 @@
     <string name="dog_not_immuned">הכלב אינו מחוסן</string>
     <string name="dog_age">גיל: </string>
     <string name="type">סוג: </string>
+    <string name="additional_comments">הערות נוספות: </string>
+    <string name="owner_name">שם: </string>
+    <string name="owner_phone">מספר טלפון: </string>
+    <string name="owner_address">כתובת: </string>
+    <string name="owner_email">כתובת מייל: </string>
 
     <!-- Dog List Item Class -->
     <string name="generate_barcode_button">ברקוד</string>

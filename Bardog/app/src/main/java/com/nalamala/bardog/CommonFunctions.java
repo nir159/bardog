@@ -31,6 +31,7 @@ public class CommonFunctions {
     // User firebase value
     public static final String USER_FULL_NAME = "name";
     public static final String USER_PHONE_NUMBER = "phone";
+    public static final String USER_ADDRESS = "address";
 
     // Dog class values
     public static final String DOG_NAME = "dog_name";
@@ -40,6 +41,7 @@ public class CommonFunctions {
     public static final String OWNER_PHONE = "owner_phone";
     public static final String PROFILE_IMAGE = "profile_img";
     public static final String COMMENTS = "comments";
+    public static final String OWNER_ADDRESS = "owner_address";
     public static final String BIRTH_DATE = "birth_year";
     public static final String DOG_ID = "dogID";
 

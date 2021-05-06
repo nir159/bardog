@@ -45,17 +45,8 @@
                 android:layout_marginTop="15dp"
                 android:textSize="50sp"
                 android:gravity="center"
-                android:textColor="#000000"
+                android:textColor="@color/colorPrimaryLight"
                 android:text="@string/loading_title" />
-
-            <TextView
-                android:id="@+id/is_immunized"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:text="" />
 
             <TextView
                 android:id="@+id/dog_type"
@@ -63,37 +54,71 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:textColor="#000000"
+                android:textColor="@color/colorPrimaryLight"
                 android:text="@string/please_wait_textview" />
-
-            <TextView
-                android:id="@+id/owner_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:textColor="#000000"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/comments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:textSize="20sp"
-                android:textColor="#000000"
-                android:text="" />
 
             <TextView
                 android:id="@+id/birth_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
                 android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="#000000"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/is_immunized"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/contactInfoTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimaryLight"
+                android:layout_marginTop="15dp"
+                android:text="@string/owner_info"
+                />
+
+            <TextView
+                android:id="@+id/owner_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/owner_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/owner_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryLight"
                 android:text="" />
 
         </LinearLayout>
