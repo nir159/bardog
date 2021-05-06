@@ -64,6 +64,9 @@
     BlahBlahBlah...
     </string>
 
+    <!-- Store Fragment -->
+    <string name="store_title">Store</string>
+
     <!-- Login Activity -->
     <string name="login_title">Login</string>
     <string name="login_email_input_hint">Email</string>
