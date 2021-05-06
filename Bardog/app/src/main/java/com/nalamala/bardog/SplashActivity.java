@@ -41,12 +41,6 @@ public class SplashActivity extends AppCompatActivity {
                         // try again
                         startActivity(new Intent(SplashActivity.this, SplashActivity.class));
                     }
-                })
-                .setNegativeButton(R.string.cancel_internet, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
                 }).create();
 
             noInternet.setOnShowListener( new DialogInterface.OnShowListener() {
