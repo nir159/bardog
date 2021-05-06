@@ -114,7 +114,7 @@
             android:padding="10dp"
             android:enabled="false"
             android:ems="10"
-            android:inputType="phone"/>
+            android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

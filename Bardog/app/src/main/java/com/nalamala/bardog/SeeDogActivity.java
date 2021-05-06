@@ -147,7 +147,8 @@ public class SeeDogActivity extends AppCompatActivity {
                                     // user didn't provide any contact information therefore the email will show
                                     String emailContact = FirebaseAuth.getInstance().getCurrentUser().getEmail();
                                     ownerInfoString = getString(R.string.owner_email) + " " + emailContact;
-                                    ownerName.setText(ownerInfoString);
+                                    ownerPhone.setVisibility(View.VISIBLE);
+                                    ownerPhone.setText(ownerInfoString);
                                 }
 
                                 return false;
